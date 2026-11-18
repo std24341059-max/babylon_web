@@ -1,17 +1,24 @@
-<!DOCTYPE html>
+<DOCTYPE html>
 <html lang="ar" dir="rtl" translate="no">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google" content="notranslate">
     <title>Babylon Web | هندسة منصات الذكاء الاصطناعي وتطوير المواقع</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='12' fill='%230E121B'/%3E%3Cpath d='M12 34H36M15 28H33M18 22H30' stroke='%23D9B36C' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M24 11L30 17L24 22L18 17L24 11Z' stroke='%2338BDF8' stroke-width='2.5' fill='none'/%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
     <style>
+        /* إخفاء أي عنوان تلقائي يضيفه GitHub Pages */
+        .markdown-body > h1:first-child,
+        .markdown-body > hr:first-of-type {
+            display: none !important;
+        }
+
         :root {
             --bg-primary: #06070A;
-            --bg-surface: rgba(14, 17, 24, 0.86);
+            --bg-surface: rgba(14, 17, 24, 0.88);
             --bg-card-hover: rgba(22, 27, 38, 0.96);
             --gold-primary: #D9B36C;
             --gold-light: #F0D59B;
@@ -49,12 +56,12 @@
             letter-spacing: 0.5px;
         }
 
-        /* Header & Language Switcher */
+        /* Header */
         header {
             position: sticky;
             top: 0;
             z-index: 100;
-            background: rgba(6, 7, 10, 0.9);
+            background: rgba(6, 7, 10, 0.92);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--border-subtle);
@@ -107,7 +114,7 @@
             gap: 10px;
         }
 
-        /* Language Switcher Pill */
+        /* Language Switcher */
         .lang-switcher {
             display: inline-flex;
             align-items: center;
@@ -143,11 +150,11 @@
         .btn-primary {
             background: linear-gradient(135deg, var(--gold-light), var(--gold-primary), var(--gold-dark));
             color: #06070A;
-            padding: 11px 22px;
+            padding: 12px 22px;
             border-radius: 10px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 0.92rem;
             border: none;
             cursor: pointer;
             display: inline-flex;
@@ -189,11 +196,11 @@
             font-size: 0.84rem;
         }
 
-        /* Hero Section */
+        /* Hero */
         .hero {
             max-width: 1120px;
             margin: 0 auto;
-            padding: 55px 5% 65px;
+            padding: 50px 5% 60px;
             text-align: center;
             display: flex;
             flex-direction: column;
@@ -227,7 +234,7 @@
         }
 
         .hero h1 {
-            font-size: clamp(1.85rem, 4.8vw, 3.25rem);
+            font-size: clamp(1.85rem, 4.8vw, 3.2rem);
             font-weight: 700;
             line-height: 1.32;
             max-width: 820px;
@@ -262,7 +269,6 @@
             min-width: 190px;
         }
 
-        /* Trust Metrics Bar */
         .trust-strip {
             width: 100%;
             max-width: 880px;
@@ -301,11 +307,11 @@
         section {
             max-width: 1120px;
             margin: 0 auto;
-            padding: 65px 5%;
+            padding: 60px 5%;
         }
 
         .section-head {
-            margin-bottom: 40px;
+            margin-bottom: 38px;
             text-align: center;
         }
 
@@ -332,7 +338,7 @@
             font-size: 0.96rem;
         }
 
-        /* Flagship Real Project Showcase (VoltAI) */
+        /* Flagship Project (VoltAI) */
         .flagship-card {
             background: linear-gradient(145deg, rgba(16, 21, 32, 0.96), rgba(9, 12, 18, 0.98));
             border: 1px solid var(--border-strong);
@@ -449,16 +455,19 @@
             gap: 22px;
         }
 
-        /* Service Cards */
-        .service-card {
+        /* Service & Project Cards */
+        .service-card, .project-card {
             background: var(--bg-surface);
             border: 1px solid var(--border-subtle);
             border-radius: 18px;
-            padding: 28px 24px;
             transition: all 0.3s ease;
         }
 
-        .service-card:hover {
+        .service-card {
+            padding: 28px 24px;
+        }
+
+        .service-card:hover, .project-card:hover {
             transform: translateY(-5px);
             border-color: var(--border-strong);
             background: var(--bg-card-hover);
@@ -488,24 +497,14 @@
             font-size: 0.92rem;
         }
 
-        /* Portfolio Cards */
         .project-card {
-            background: var(--bg-surface);
-            border: 1px solid var(--border-subtle);
-            border-radius: 18px;
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            transition: all 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--border-strong);
         }
 
         .project-visual {
-            height: 150px;
+            height: 145px;
             background: linear-gradient(145deg, #0D121D, #151C2C);
             border-bottom: 1px solid var(--border-subtle);
             padding: 16px;
@@ -580,30 +579,117 @@
             margin-bottom: 18px;
         }
 
-        /* Direct Contact Channels */
+        /* FAQ Section */
+        .faq-list {
+            max-width: 820px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .faq-item {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: 14px;
+            padding: 18px 22px;
+        }
+
+        .faq-item h4 {
+            font-size: 1.02rem;
+            color: var(--gold-light);
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .faq-item p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Smart Brief Builder & Direct Contact */
         .cta-panel {
             background: linear-gradient(145deg, rgba(18, 22, 33, 0.96), rgba(9, 11, 16, 0.98));
             border: 1px solid var(--border-strong);
             border-radius: 22px;
-            padding: 42px 24px;
+            padding: 40px 24px;
             text-align: center;
         }
 
         .cta-panel h2 {
             font-size: clamp(1.5rem, 3.5vw, 2.1rem);
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .cta-panel > p {
             color: var(--text-secondary);
             max-width: 580px;
-            margin: 0 auto 30px;
+            margin: 0 auto 28px;
             font-size: 0.96rem;
+        }
+
+        .brief-builder {
+            max-width: 680px;
+            margin: 0 auto 34px;
+            background: rgba(255, 255, 255, 0.025);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 22px;
+            text-align: start;
+        }
+
+        .brief-label {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--gold-light);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .type-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .type-pill {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            padding: 8px 14px;
+            border-radius: 9px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .type-pill.selected {
+            background: rgba(217, 179, 108, 0.16);
+            border-color: var(--gold-primary);
+            color: var(--gold-light);
+        }
+
+        .brief-input {
+            width: 100%;
+            background: rgba(6, 7, 10, 0.7);
+            border: 1px solid var(--border-subtle);
+            border-radius: 10px;
+            padding: 12px 14px;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            margin-bottom: 14px;
+            outline: none;
+        }
+
+        .brief-input:focus {
+            border-color: var(--gold-primary);
         }
 
         .contact-channels {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 14px;
             max-width: 820px;
             margin: 0 auto;
@@ -613,7 +699,7 @@
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid var(--border-subtle);
             border-radius: 14px;
-            padding: 18px 16px;
+            padding: 16px;
             text-decoration: none;
             color: var(--text-primary);
             display: flex;
@@ -630,8 +716,8 @@
         }
 
         .channel-icon {
-            width: 44px;
-            height: 44px;
+            width: 42px;
+            height: 42px;
             border-radius: 11px;
             background: rgba(217, 179, 108, 0.12);
             border: 1px solid rgba(217, 179, 108, 0.3);
@@ -644,7 +730,7 @@
 
         .channel-meta strong {
             display: block;
-            font-size: 0.96rem;
+            font-size: 0.94rem;
             font-weight: 700;
         }
 
@@ -736,7 +822,6 @@
 </head>
 <body>
 
-    <!-- الشريط العلوي المدمج مع مبدل اللغات -->
     <header>
         <div class="nav-container">
             <a href="#" class="brand">
@@ -759,7 +844,6 @@
             </a>
 
             <div class="header-controls">
-                <!-- قسم اللغات المتعددة -->
                 <div class="lang-switcher" role="group" aria-label="Language Switcher">
                     <button class="lang-btn active" onclick="setLanguage('ar')" id="btn-ar">العربية</button>
                     <button class="lang-btn" onclick="setLanguage('en')" id="btn-en">EN</button>
@@ -771,7 +855,6 @@
         </div>
     </header>
 
-    <!-- الواجهة الرئيسية -->
     <section class="hero">
         <div class="status-pill">
             <span class="status-dot"></span>
@@ -824,7 +907,6 @@
         </div>
     </section>
 
-    <!-- قسم الأعمال الحقيقية والنماذج -->
     <section id="projects">
         <div class="section-head">
             <span class="section-tag" data-i18n="projectsTag">معرض الإنجازات</span>
@@ -832,7 +914,6 @@
             <p data-i18n="projectsSub">اطلع على مشاريعنا الفعلية والحلول البرمجية الجاهزة للتخصيص حسب نشاطك التجاري</p>
         </div>
 
-        <!-- المشروع الحقيقي المميز: منصة VoltAI -->
         <div class="flagship-card">
             <div class="flagship-header">
                 <div class="live-badge">
@@ -872,8 +953,7 @@
             </div>
 
             <div class="flagship-actions">
-                <!-- استبدل الرابط أدناه برابط منصة VoltAI المباشر -->
-                <a href="https://YOUR-VOLTAI-LINK-HERE" target="_blank" class="btn-primary">
+                <a href="https://volt-ai.std24341059.workers.dev/" target="_blank" rel="noopener noreferrer" class="btn-primary">
                     <span data-i18n="voltBtnVisit">زيارة منصة VoltAI مباشرة</span>
                     <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
                 </a>
@@ -883,7 +963,6 @@
             </div>
         </div>
 
-        <!-- بقية النماذج والأنظمة -->
         <div class="grid-3">
             <div class="project-card">
                 <div class="project-visual">
@@ -950,7 +1029,6 @@
         </div>
     </section>
 
-    <!-- قسم الخدمات -->
     <section id="services">
         <div class="section-head">
             <span class="section-tag" data-i18n="servicesTag">مجالات التخصص</span>
@@ -985,15 +1063,53 @@
         </div>
     </section>
 
-    <!-- قسم التواصل المباشر -->
+    <section id="faq">
+        <div class="section-head">
+            <span class="section-tag" data-i18n="faqTag">إجابات واضحة</span>
+            <h2 data-i18n="faqTitle">الأسئلة الشائعة</h2>
+        </div>
+
+        <div class="faq-list">
+            <div class="faq-item">
+                <h4 data-i18n="q1Title">كم يستغرق تصميم وبناء الموقع أو المنصة؟</h4>
+                <p data-i18n="q1Desc">تتراوح مدة التنفيذ بين 3 إلى 7 أيام للمواقع التعريفية وصفحات الهبوط، ومن أسبوع إلى أسبوعين لمنصات الذكاء الاصطناعي والأنظمة المخصصة حسب حجم الميزات المطلوبة.</p>
+            </div>
+            <div class="faq-item">
+                <h4 data-i18n="q2Title">هل يعمل الموقع بسلاسة على هواتف الآيفون والأندرويد؟</h4>
+                <p data-i18n="q2Desc">نعم، جميع مشاريعنا تُبنى بمنهجية التوافق الكامل مع شاشات الهواتف الذكية أولاً، مع سرعة تحميل عالية وتجربة تصفح مريحة.</p>
+            </div>
+            <div class="faq-item">
+                <h4 data-i18n="q3Title">هل أستلم ملكية الكود والمشروع بالكامل؟</h4>
+                <p data-i18n="q3Desc">بالتأكيد، عند الانتهاء من المشروع يتم تسليمك كافة الأكواد المصدرية وربط الموقع بالاستضافة والدومين الخاص بك بملكية كاملة 100%.</p>
+            </div>
+        </div>
+    </section>
+
     <section id="contact">
         <div class="cta-panel">
             <h2 data-i18n="contactTitle">تواصل معنا مباشرة لبدء مشروعك</h2>
-            <p data-i18n="contactDesc">اختر وسيلة التواصل المناسبة لك لمناقشة فكرة موقعك أو منصتك الرقمية والحصول على استشارة وتصور واضح للتنفيذ.</p>
+            <p data-i18n="contactDesc">حدد نوع مشروعك لإرسال طلب سريع عبر واتساب، أو تواصل معنا مباشرة عبر حساباتنا الرسمية.</p>
+
+            <!-- نموذج تحديد المشروع السريع -->
+            <div class="brief-builder">
+                <span class="brief-label" data-i18n="briefSelectLabel">1. اختر نوع المشروع المطلوب:</span>
+                <div class="type-pills" id="projectTypeGroup">
+                    <button type="button" class="type-pill selected" onclick="selectType(this, 'ai')" data-i18n="typeAI">منصة ذكاء اصطناعي</button>
+                    <button type="button" class="type-pill" onclick="selectType(this, 'web')" data-i18n="typeWeb">موقع شركة / عيادة / صفحة هبوط</button>
+                    <button type="button" class="type-pill" onclick="selectType(this, 'custom')" data-i18n="typeCustom">نظام خاص / مشروع متكامل</button>
+                </div>
+
+                <span class="brief-label" data-i18n="briefInputLabel">2. نبذة قصيرة عن فكرتك (اختياري):</span>
+                <input type="text" id="projectIdeaInput" class="brief-input" placeholder="مثال: أرغب ببناء موقع تعريفي لعيادتي مع نظام حجز..." data-i18n-placeholder="briefPlaceholder">
+
+                <button type="button" onclick="sendWhatsAppBrief()" class="btn-primary" style="width: 100%;">
+                    <span data-i18n="briefSendBtn">إرسال تفاصيل المشروع عبر واتساب</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                </button>
+            </div>
 
             <div class="contact-channels">
-                <!-- واتساب -->
-                <a href="https://wa.me/9647850772200" target="_blank" class="channel-card">
+                <a href="https://wa.me/9647850772200" target="_blank" rel="noopener noreferrer" class="channel-card">
                     <div class="channel-icon">
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
                     </div>
@@ -1003,8 +1119,7 @@
                     </div>
                 </a>
 
-                <!-- تليجرام -->
-                <a href="https://t.me/mzr_eng" target="_blank" class="channel-card">
+                <a href="https://t.me/mzr_eng" target="_blank" rel="noopener noreferrer" class="channel-card">
                     <div class="channel-icon">
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
                     </div>
@@ -1014,8 +1129,7 @@
                     </div>
                 </a>
 
-                <!-- إنستغرام -->
-                <a href="https://instagram.com/0dst" target="_blank" class="channel-card">
+                <a href="https://instagram.com/0dst" target="_blank" rel="noopener noreferrer" class="channel-card">
                     <div class="channel-icon">
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
                     </div>
@@ -1028,12 +1142,10 @@
         </div>
     </section>
 
-    <!-- التذييل -->
     <footer>
         <p data-i18n="footerText">جميع الحقوق محفوظة &copy; 2026 <strong>BABYLON WEB</strong> — تطوير منصات الذكاء الاصطناعي والحلول الرقمية | العراق</p>
     </footer>
 
-    <!-- نافذة تفاصيل المشاريع -->
     <div id="projectModal" class="modal" onclick="closeProject()">
         <div class="modal-card" onclick="event.stopPropagation()">
             <h3 id="mTitle"></h3>
@@ -1047,6 +1159,7 @@
 
     <script>
         let currentLang = 'ar';
+        let selectedProjectType = 'ai';
 
         const i18n = {
             ar: {
@@ -1097,8 +1210,23 @@
                 s2Desc: 'تصميم وبرمجة مواقع سريعة ومتجاوبة بالكامل مع الهواتف تعكس قوة علامتك التجارية وتزيد من ثقة عملائك.',
                 s3Title: 'تحويل الأفكار إلى مشاريع رقمية',
                 s3Desc: 'نرافقك من التخطيط الأولي إلى إطلاق النسخة الكاملة على الإنترنت مع تسليم كافة الأكواد والملفات البرمجية.',
+                faqTag: 'إجابات واضحة',
+                faqTitle: 'الأسئلة الشائعة',
+                q1Title: 'كم يستغرق تصميم وبناء الموقع أو المنصة؟',
+                q1Desc: 'تتراوح مدة التنفيذ بين 3 إلى 7 أيام للمواقع التعريفية وصفحات الهبوط، ومن أسبوع إلى أسبوعين لمنصات الذكاء الاصطناعي والأنظمة المخصصة حسب حجم الميزات المطلوبة.',
+                q2Title: 'هل يعمل الموقع بسلاسة على هواتف الآيفون والأندرويد؟',
+                q2Desc: 'نعم، جميع مشاريعنا تُبنى بمنهجية التوافق الكامل مع شاشات الهواتف الذكية أولاً، مع سرعة تحميل عالية وتجربة تصفح مريحة.',
+                q3Title: 'هل أستلم ملكية الكود والمشروع بالكامل؟',
+                q3Desc: 'بالتأكيد، عند الانتهاء من المشروع يتم تسليمك كافة الأكواد المصدرية وربط الموقع بالاستضافة والدومين الخاص بك بملكية كاملة 100%.',
                 contactTitle: 'تواصل معنا مباشرة لبدء مشروعك',
-                contactDesc: 'اختر وسيلة التواصل المناسبة لك لمناقشة فكرة موقعك أو منصتك الرقمية والحصول على استشارة وتصور واضح للتنفيذ.',
+                contactDesc: 'حدد نوع مشروعك لإرسال طلب سريع عبر واتساب، أو تواصل معنا مباشرة عبر حساباتنا الرسمية.',
+                briefSelectLabel: '1. اختر نوع المشروع المطلوب:',
+                typeAI: 'منصة ذكاء اصطناعي',
+                typeWeb: 'موقع شركة / عيادة / صفحة هبوط',
+                typeCustom: 'نظام خاص / مشروع متكامل',
+                briefInputLabel: '2. نبذة قصيرة عن فكرتك (اختياري):',
+                briefPlaceholder: 'مثال: أرغب ببناء موقع تعريفي لعيادتي مع نظام حجز...',
+                briefSendBtn: 'إرسال تفاصيل المشروع عبر واتساب',
                 chWhatsapp: 'واتساب مباشر',
                 chTelegram: 'تليجرام',
                 chInstagram: 'إنستغرام',
@@ -1159,8 +1287,23 @@
                 s2Desc: 'Fast, responsive websites engineered to elevate your brand credibility and maximize client conversions.',
                 s3Title: 'Idea-to-Launch Execution',
                 s3Desc: 'End-to-end development from initial blueprint to live cloud deployment with complete source code handover.',
+                faqTag: 'Clear Answers',
+                faqTitle: 'Frequently Asked Questions',
+                q1Title: 'How long does it take to build a website or platform?',
+                q1Desc: 'Corporate websites and landing pages take 3 to 7 days, while custom AI platforms and dashboards take 1 to 2 weeks depending on required integrations.',
+                q2Title: 'Are all websites fully optimized for mobile devices?',
+                q2Desc: 'Yes, every project is engineered mobile-first for iOS and Android browsers with fast load speeds and clean responsive layouts.',
+                q3Title: 'Do I receive full ownership and source code?',
+                q3Desc: 'Yes, upon completion we hand over 100% of the source code and connect everything to your domain and hosting.',
                 contactTitle: 'Connect Directly to Start Your Project',
-                contactDesc: 'Choose your preferred channel below to discuss your website or AI platform and get a clear execution plan.',
+                contactDesc: 'Select your project type to send a structured inquiry via WhatsApp, or reach out through our direct channels.',
+                briefSelectLabel: '1. Select your project type:',
+                typeAI: 'AI Platform',
+                typeWeb: 'Company / Clinic Website / Landing Page',
+                typeCustom: 'Custom System / Full MVP',
+                briefInputLabel: '2. Brief note about your idea (optional):',
+                briefPlaceholder: 'Example: I need a clinic website with online appointment booking...',
+                briefSendBtn: 'Send Project Brief via WhatsApp',
                 chWhatsapp: 'Direct WhatsApp',
                 chTelegram: 'Telegram',
                 chInstagram: 'Instagram',
@@ -1221,8 +1364,23 @@
                 s2Desc: 'دیزاین و پڕۆگرامسازی ماڵپەڕی خێرا و گونجاو لەگەڵ مۆبایل کە متمانەی کڕیارەکانت زیاد دەکات.',
                 s3Title: 'گۆڕینی بیرۆکە بۆ پڕۆژەی ڕاستەقینە',
                 s3Desc: 'لە سەرەتای پلانەوە تا بڵاوکردنەوەی تەواو لەسەر ئینتەرنێت لەگەڵت دەبین و تەواوی کۆدەکانت ڕادەست دەکەین.',
+                faqTag: 'وەڵامی ڕوون',
+                faqTitle: 'پرسیارە باوەکان',
+                q1Title: 'دروستکردنی ماڵپەڕ یان پلاتفۆرم چەند کاتی دەوێت؟',
+                q1Desc: 'ماڵپەڕی کۆمپانیا و پەڕەی فرۆشتن ٣ بۆ ٧ ڕۆژی دەوێت، و پلاتفۆرمەکانی ژیری دەستکرد ١ بۆ ٢ هەفتەیان دەوێت بەپێی تایبەتمەندییەکان.',
+                q2Title: 'ئایا ماڵپەڕەکە بە باشی لەسەر هەموو مۆبایلەکان کار دەکات؟',
+                q2Desc: 'بەڵێ، هەموو پڕۆژەکانمان بە تەواوی لەگەڵ شاشەی مۆبایلەکانی ئایفۆن و ئەندرۆید دەگونجێن بە خێراییەکی بەرز.',
+                q3Title: 'ئایا تەواوی کۆد و خاوەندارێتی پڕۆژەکە وەردەگرم؟',
+                q3Desc: 'بە دڵنیاییەوە، دوای تەواوبوونی پڕۆژەکە تەواوی کۆدەکان و فایلەکانت بە خاوەندارێتی ١٠٠٪ ڕادەست دەکرێت.',
                 contactTitle: 'ڕاستەوخۆ پەیوەندیمان پێوە بکە',
-                contactDesc: 'یەکێک لەم ڕێگایانە هەڵبژێرە بۆ گفتوگۆکردن دەربارەی بیرۆکەی ماڵپەڕ یان پلاتفۆرمەکەت.',
+                contactDesc: 'جۆری پڕۆژەکەت دیاری بکە بۆ ناردنی داواکاری خێرا لە واتسئەپ، یان ڕاستەوخۆ نامەمان بۆ بنێرە.',
+                briefSelectLabel: '١. جۆری پڕۆژەکەت هەڵبژێرە:',
+                typeAI: 'پلاتفۆرمی ژیری دەستکرد',
+                typeWeb: 'ماڵپەڕی کۆمپانیا / کلینیک',
+                typeCustom: 'سیستەمی تایبەت / پڕۆژەی تەواو',
+                briefInputLabel: '٢. کورتەیەک دەربارەی بیرۆکەکەت (ئارەزوومەندانە):',
+                briefPlaceholder: 'نموونە: دەمەوێت ماڵپەڕێک بۆ کلینیکەکەم دروست بکەم...',
+                briefSendBtn: 'ناردنی زانیاری پڕۆژە لە واتسئەپ',
                 chWhatsapp: 'واتسئەپ',
                 chTelegram: 'تێلیگرام',
                 chInstagram: 'ئینستاگرام',
@@ -1252,6 +1410,34 @@
                     el.innerHTML = data[key];
                 }
             });
+
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (data[key]) {
+                    el.placeholder = data[key];
+                }
+            });
+        }
+
+        function selectType(btn, type) {
+            selectedProjectType = type;
+            document.querySelectorAll('.type-pill').forEach(p => p.classList.remove('selected'));
+            btn.classList.add('selected');
+        }
+
+        function sendWhatsAppBrief() {
+            const typeNames = {
+                ai: 'منصة ذكاء اصطناعي (AI Platform)',
+                web: 'موقع تعريفي / عيادة / صفحة هبوط',
+                custom: 'نظام خاص / مشروع رقمي متكامل'
+            };
+            const idea = document.getElementById('projectIdeaInput').value.trim();
+            let text = `مرحباً فريق Babylon Web، أرغب بالاستفسار عن تنفيذ مشروع:\n- نوع المشروع: ${typeNames[selectedProjectType]}`;
+            if (idea) {
+                text += `\n- تفاصيل الفكرة: ${idea}`;
+            }
+            const url = `https://wa.me/9647850772200?text=${encodeURIComponent(text)}`;
+            window.open(url, '_blank', 'noopener,noreferrer');
         }
 
         function openProject(key) {
