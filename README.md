@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<DOCTYPE html>
 <html lang="ar" dir="rtl" translate="no" data-type="software">
 <head>
     <meta charset="UTF-8">
