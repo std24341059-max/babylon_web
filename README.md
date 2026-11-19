@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" translate="no">
+<html lang="ar" dir="rtl" translate="no" data-type="software">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <meta name="google" content="notranslate">
+    <meta name="page-type" content="software">
+    <meta name="site-kind" content="software">
+    <meta name="description" content="Babylon Web | هندسة منصات الذكاء الاصطناعي وتطوير المواقع الرقمية عالية الأداء للشركات ورواد الأعمال.">
     <title>Babylon Web | هندسة منصات الذكاء الاصطناعي وتطوير المواقع</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='12' fill='%23421d24'/%3E%3Cpath d='M13 33H35M16 26H32M19 19H29' stroke='%23f2f0eb' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,6 +34,7 @@
             --radius-md: 12px;
             --radius-lg: 16px;
             --radius-pill: 999px;
+            --ease-calm: cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         *, *::before, *::after {
@@ -50,8 +54,15 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        html {
-            scroll-behavior: smooth;
+        @media (prefers-reduced-motion: no-preference) {
+            html {
+                scroll-behavior: smooth;
+            }
+        }
+
+        :focus-visible {
+            outline: 2px solid var(--color-royal-violet);
+            outline-offset: 2px;
         }
 
         .en-font {
@@ -64,6 +75,11 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+        }
+
+        /* Direction-aware SVG arrow */
+        html[dir="ltr"] .dir-arrow {
+            transform: scaleX(-1);
         }
 
         /* Top Announcement Banner */
@@ -81,17 +97,25 @@
             align-items: center;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 10px;
         }
 
         .top-banner a {
             color: var(--color-paper-white);
             text-decoration: none;
             border: 1px solid rgba(255, 255, 255, 0.35);
-            padding: 3px 12px;
+            padding: 4px 12px;
             border-radius: var(--radius-pill);
             font-size: 0.78rem;
             white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: background 0.2s var(--ease-calm);
+        }
+
+        .top-banner a:hover {
+            background: rgba(255, 255, 255, 0.14);
         }
 
         /* Sticky Header */
@@ -120,15 +144,15 @@
         .brand {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             text-decoration: none;
             color: var(--color-ink-charcoal);
             flex-shrink: 0;
         }
 
         .brand-mark {
-            width: 32px;
-            height: 32px;
+            width: 34px;
+            height: 34px;
             background: var(--color-midnight-wine);
             border-radius: 8px;
             display: flex;
@@ -140,7 +164,7 @@
 
         .brand-name {
             font-family: 'Inter', sans-serif;
-            font-size: 1.05rem;
+            font-size: 1.08rem;
             font-weight: 600;
             letter-spacing: -0.02em;
             color: var(--color-ink-charcoal);
@@ -150,14 +174,19 @@
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 24px;
+            gap: 28px;
         }
 
         .nav-links a {
             text-decoration: none;
             color: var(--color-ink-charcoal);
-            font-size: 0.92rem;
+            font-size: 0.94rem;
             font-weight: 500;
+            transition: color 0.2s var(--ease-calm);
+        }
+
+        .nav-links a:hover {
+            color: var(--color-royal-violet);
         }
 
         .header-controls {
@@ -180,11 +209,13 @@
             border: none;
             color: var(--color-stone-gray);
             font-family: inherit;
-            font-size: 0.75rem;
+            font-size: 0.76rem;
             font-weight: 600;
-            padding: 5px 8px;
+            padding: 6px 9px;
             border-radius: 5px;
             cursor: pointer;
+            min-height: 34px;
+            transition: background 0.18s var(--ease-calm), color 0.18s var(--ease-calm);
         }
 
         .lang-btn.active {
@@ -199,16 +230,26 @@
             justify-content: center;
             gap: 8px;
             min-height: 46px;
-            padding: 0 20px;
+            padding: 0 22px;
             background-color: var(--color-midnight-wine);
             color: var(--color-paper-white);
             border: none;
             border-radius: var(--radius-lg);
             font-family: inherit;
-            font-size: 0.92rem;
+            font-size: 0.94rem;
             font-weight: 500;
             text-decoration: none;
             cursor: pointer;
+            transition: opacity 0.2s var(--ease-calm), transform 0.12s var(--ease-calm);
+        }
+
+        .btn-wine:hover {
+            opacity: 0.92;
+            transform: translateY(-1px);
+        }
+
+        .btn-wine:active {
+            transform: translateY(1px);
         }
 
         .btn-lilac {
@@ -216,17 +257,27 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            min-height: 42px;
-            padding: 6px 16px;
+            min-height: 44px;
+            padding: 6px 18px;
             background-color: var(--color-lilac-mist);
             color: var(--color-ink-charcoal);
             border: 1px solid var(--color-ink-charcoal);
             border-radius: var(--radius-sm);
             font-family: inherit;
-            font-size: 0.88rem;
+            font-size: 0.9rem;
             font-weight: 500;
             text-decoration: none;
             cursor: pointer;
+            transition: background 0.2s var(--ease-calm), transform 0.12s var(--ease-calm);
+        }
+
+        .btn-lilac:hover {
+            background-color: #c5b4ff;
+            transform: translateY(-1px);
+        }
+
+        .btn-lilac:active {
+            transform: translateY(1px);
         }
 
         .btn-ghost-white {
@@ -241,10 +292,20 @@
             border: 1px solid var(--color-paper-white);
             border-radius: var(--radius-sm);
             font-family: inherit;
-            font-size: 0.9rem;
+            font-size: 0.92rem;
             font-weight: 500;
             text-decoration: none;
             cursor: pointer;
+            transition: background 0.2s var(--ease-calm), transform 0.12s var(--ease-calm);
+        }
+
+        .btn-ghost-white:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateY(-1px);
+        }
+
+        .btn-ghost-white:active {
+            transform: translateY(1px);
         }
 
         .violet-link {
@@ -259,6 +320,12 @@
             border: none;
             cursor: pointer;
             font-family: inherit;
+            min-height: 44px;
+            padding: 0;
+        }
+
+        .violet-link:hover span {
+            text-decoration: underline;
         }
 
         /* Hero */
@@ -289,11 +356,13 @@
         }
 
         .hero-eyebrow {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             font-size: 0.8rem;
             font-weight: 600;
             color: var(--color-midnight-wine);
-            background: rgba(255, 255, 255, 0.75);
+            background: rgba(255, 255, 255, 0.78);
             border: 1px solid rgba(66, 29, 36, 0.15);
             padding: 5px 14px;
             border-radius: var(--radius-pill);
@@ -302,8 +371,9 @@
 
         .hero-canvas h1 {
             font-size: clamp(1.85rem, 4.2vw, 3.3rem);
-            font-weight: 600;
-            line-height: 1.18;
+            font-weight: 500;
+            line-height: 1.16;
+            letter-spacing: -0.02em;
             color: var(--color-ink-charcoal);
             margin-bottom: 16px;
         }
@@ -334,24 +404,32 @@
             background: rgba(255, 255, 255, 0.88);
             border: 1px solid rgba(255, 255, 255, 0.7);
             border-radius: var(--radius-lg);
-            padding: 16px 18px;
+            padding: 18px 20px;
+            transition: transform 0.22s var(--ease-calm);
+        }
+
+        .floating-ui-card:hover {
+            transform: translateY(-2px);
         }
 
         .floating-ui-head {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
             font-size: 0.8rem;
         }
 
         .ui-badge-lilac {
             background: var(--color-lilac-mist);
             color: var(--color-ink-charcoal);
-            padding: 2px 10px;
+            padding: 3px 10px;
             border-radius: var(--radius-pill);
             font-weight: 600;
             font-size: 0.74rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
         }
 
         .floating-ui-card h3 {
@@ -383,9 +461,13 @@
         }
 
         .trust-cell {
-            padding: 18px 12px;
+            padding: 18px 14px;
             text-align: center;
             border-inline-end: 1px solid var(--color-soft-mist);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
         }
 
         .trust-cell:last-child {
@@ -394,20 +476,20 @@
 
         .trust-cell strong {
             display: block;
-            font-size: 0.9rem;
+            font-size: 0.92rem;
             font-weight: 600;
             color: var(--color-ink-charcoal);
         }
 
         .trust-cell span {
-            font-size: 0.78rem;
+            font-size: 0.8rem;
             color: var(--color-stone-gray);
         }
 
         /* Sections */
         .section {
             width: 100%;
-            padding: 64px 0;
+            padding: 68px 0;
         }
 
         .section-head {
@@ -417,8 +499,8 @@
 
         .section-head h2 {
             font-size: clamp(1.6rem, 3.2vw, 2.5rem);
-            font-weight: 600;
-            line-height: 1.2;
+            font-weight: 500;
+            line-height: 1.18;
             color: var(--color-ink-charcoal);
             margin-bottom: 10px;
         }
@@ -437,20 +519,26 @@
             border: 1px solid var(--color-soft-mist);
             border-radius: var(--radius-sm);
             overflow: hidden;
-            margin-bottom: 20px;
+            margin-bottom: 22px;
         }
 
         .suite-tab {
             padding: 14px 8px;
             text-align: center;
             font-weight: 600;
-            font-size: 0.86rem;
+            font-size: 0.88rem;
             color: var(--color-ink-charcoal);
             background: var(--color-paper-white);
             border: none;
             border-inline-end: 1px solid var(--color-soft-mist);
             cursor: pointer;
             font-family: inherit;
+            min-height: 46px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: background 0.2s var(--ease-calm);
         }
 
         .suite-tab:last-child {
@@ -473,15 +561,21 @@
             background: var(--color-paper-white);
             border: 1px solid var(--color-soft-mist);
             border-radius: var(--radius-lg);
-            padding: 22px;
+            padding: 24px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            transition: border-color 0.2s var(--ease-calm), transform 0.22s var(--ease-calm);
+        }
+
+        .suite-card:hover {
+            border-color: var(--color-ink-charcoal);
+            transform: translateY(-2px);
         }
 
         .card-icon {
-            width: 36px;
-            height: 36px;
+            width: 38px;
+            height: 38px;
             border-radius: 8px;
             background: var(--color-warm-parchment);
             border: 1px solid var(--color-soft-mist);
@@ -493,7 +587,7 @@
         }
 
         .suite-card h3 {
-            font-size: 1.12rem;
+            font-size: 1.14rem;
             font-weight: 600;
             margin-bottom: 8px;
         }
@@ -501,7 +595,7 @@
         .suite-card p {
             font-size: 0.92rem;
             color: var(--color-stone-gray);
-            margin-bottom: 18px;
+            margin-bottom: 16px;
         }
 
         /* Dark Feature Band */
@@ -509,7 +603,7 @@
             width: 100%;
             background-color: var(--color-deep-lagoon);
             color: var(--color-paper-white);
-            padding: 68px 0;
+            padding: 72px 0;
         }
 
         .dark-band-grid {
@@ -556,7 +650,9 @@
         }
 
         .dark-band-content .tag-pill {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
             background: rgba(212, 199, 255, 0.18);
             color: var(--color-lilac-mist);
             padding: 5px 14px;
@@ -568,7 +664,7 @@
 
         .dark-band-content h2 {
             font-size: clamp(1.85rem, 3.8vw, 3rem);
-            font-weight: 600;
+            font-weight: 500;
             line-height: 1.15;
             margin-bottom: 16px;
         }
@@ -611,7 +707,7 @@
 
         .gradient-banner h2 {
             font-size: clamp(1.4rem, 3vw, 2.2rem);
-            font-weight: 600;
+            font-weight: 500;
             color: var(--color-ink-charcoal);
             max-width: 600px;
         }
@@ -678,13 +774,14 @@
             background: var(--color-warm-parchment);
             border: 1px solid var(--color-soft-mist);
             color: var(--color-ink-charcoal);
-            padding: 8px 12px;
+            padding: 8px 14px;
             border-radius: var(--radius-sm);
             font-family: inherit;
             font-size: 0.84rem;
             font-weight: 500;
             cursor: pointer;
-            min-height: 40px;
+            min-height: 44px;
+            transition: background 0.18s var(--ease-calm), border-color 0.18s var(--ease-calm);
         }
 
         .type-pill.selected {
@@ -703,6 +800,7 @@
             font-family: inherit;
             font-size: 0.92rem;
             margin-bottom: 16px;
+            min-height: 46px;
         }
 
         .channels-list {
@@ -723,11 +821,46 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            min-height: 74px;
+            transition: border-color 0.2s var(--ease-calm), transform 0.22s var(--ease-calm);
+        }
+
+        .channel-item:hover {
+            border-color: var(--color-ink-charcoal);
+            transform: translateY(-2px);
+        }
+
+        .channel-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .brand-icon-box {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .brand-icon-box.wa {
+            background: #eafaf1;
+        }
+
+        .brand-icon-box.tg {
+            background: #e8f5fd;
+        }
+
+        .brand-icon-box.ig {
+            background: #fdf0f4;
         }
 
         .channel-item strong {
             display: block;
-            font-size: 0.94rem;
+            font-size: 0.95rem;
         }
 
         .channel-item span {
@@ -736,6 +869,19 @@
             font-family: 'Inter', sans-serif;
             direction: ltr;
             display: inline-block;
+        }
+
+        .ext-arrow-box {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: var(--color-warm-parchment);
+            border: 1px solid var(--color-soft-mist);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-ink-charcoal);
+            flex-shrink: 0;
         }
 
         /* Footer */
@@ -765,15 +911,20 @@
         .footer-col a {
             display: block;
             font-size: 0.86rem;
-            color: rgba(255, 255, 255, 0.75);
+            color: rgba(255, 255, 255, 0.78);
             text-decoration: none;
             margin-bottom: 8px;
+        }
+
+        .footer-col a:hover {
+            color: var(--color-paper-white);
+            text-decoration: underline;
         }
 
         .footer-bottom {
             padding-top: 20px;
             font-size: 0.82rem;
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(255, 255, 255, 0.72);
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
@@ -873,8 +1024,11 @@
 
     <div class="top-banner">
         <div class="top-banner-inner">
-            <span data-i18n="bannerText">إطلاق منصة VoltAI — أحدث أنظمة الذكاء الاصطناعي من تطوير Babylon Web</span>
-            <a href="https://volt-ai.std24341059.workers.dev/" target="_blank" rel="noopener noreferrer" data-i18n="bannerLink">تجربة المنصة</a>
+            <span data-i18n="bannerText">إطلاق منصة VoltAI | أحدث أنظمة الذكاء الاصطناعي من تطوير Babylon Web</span>
+            <a href="https://volt-ai.std24341059.workers.dev/" target="_blank" rel="noopener noreferrer">
+                <span data-i18n="bannerLink">تجربة المنصة</span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </a>
         </div>
     </div>
 
@@ -882,19 +1036,19 @@
         <div class="container nav-inner">
             <a href="#" class="brand">
                 <div class="brand-mark">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 18h16M6 13h12M8 8h8"/></svg>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 18h16M6 13h12M8 8h8"/></svg>
                 </div>
                 <span class="brand-name">Babylon Web</span>
             </a>
 
-            <nav class="nav-links">
+            <nav class="nav-links" aria-label="Primary Navigation">
                 <a href="#suite" data-i18n="navServices">الحلول والخدمات</a>
                 <a href="#voltai" data-i18n="navVolt">منصة VoltAI</a>
                 <a href="#faq" data-i18n="navFaq">الأسئلة الشائعة</a>
             </nav>
 
             <div class="header-controls">
-                <div class="lang-switcher">
+                <div class="lang-switcher" role="group" aria-label="Language Switcher">
                     <button type="button" class="lang-btn active" onclick="setLanguage('ar')" id="btn-ar">العربية</button>
                     <button type="button" class="lang-btn" onclick="setLanguage('en')" id="btn-en">EN</button>
                     <button type="button" class="lang-btn" onclick="setLanguage('ku')" id="btn-ku">کوردی</button>
@@ -909,7 +1063,10 @@
             <section class="hero-canvas">
                 <div class="hero-grid">
                     <div>
-                        <span class="hero-eyebrow" data-i18n="heroEyebrow">هندسة الذكاء الاصطناعي وتطوير الويب</span>
+                        <span class="hero-eyebrow">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <span data-i18n="heroEyebrow">هندسة الذكاء الاصطناعي وتطوير الويب</span>
+                        </span>
                         <h1 data-i18n="heroTitle">نصمم منصات الذكاء الاصطناعي والمواقع الرقمية بسرعة ودقة</h1>
                         <p class="hero-desc" data-i18n="heroDesc">
                             في Babylon Web نحول أفكارك إلى مواقع شركات عالية الأداء ومنصات ذكاء اصطناعي متكاملة تمنح عملك حضوراً موثوقاً وتجربة استخدام استثنائية.
@@ -917,6 +1074,7 @@
                         <div class="hero-actions">
                             <a href="#contact" class="btn-wine">
                                 <span data-i18n="heroBtnPrimary">اطلب بناء مشروعك</span>
+                                <svg class="dir-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
                             </a>
                             <a href="#voltai" class="btn-lilac" data-i18n="heroBtnSecondary">استكشف منصة VoltAI</a>
                         </div>
@@ -925,7 +1083,10 @@
                     <div class="floating-stack">
                         <div class="floating-ui-card">
                             <div class="floating-ui-head">
-                                <span class="ui-badge-lilac en-font">VoltAI Live</span>
+                                <span class="ui-badge-lilac en-font">
+                                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                                    VoltAI Live
+                                </span>
                                 <span class="en-font" style="color: var(--color-stone-gray);">Production</span>
                             </div>
                             <h3 data-i18n="float1Title">منصة ذكاء اصطناعي متكاملة</h3>
@@ -934,7 +1095,10 @@
 
                         <div class="floating-ui-card">
                             <div class="floating-ui-head">
-                                <span class="ui-badge-lilac" data-i18n="float2Tag">تسليم سريع</span>
+                                <span class="ui-badge-lilac">
+                                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span data-i18n="float2Tag">تسليم سريع</span>
+                                </span>
                                 <span class="en-font" style="color: var(--color-stone-gray);">3 - 7 Days</span>
                             </div>
                             <h3 data-i18n="float2Title">ملكية كاملة للكود المصدري</h3>
@@ -948,18 +1112,22 @@
         <div class="trust-band">
             <div class="trust-grid">
                 <div class="trust-cell">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#421d24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
                     <strong data-i18n="trust1Title">برمجة مخصصة</strong>
                     <span data-i18n="trust1Sub">أكواد نظيفة وسريعة</span>
                 </div>
                 <div class="trust-cell">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#421d24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/></svg>
                     <strong data-i18n="trust2Title">تكامل الذكاء الاصطناعي</strong>
                     <span data-i18n="trust2Sub">ربط الأنظمة الذكية</span>
                 </div>
                 <div class="trust-cell">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#421d24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
                     <strong data-i18n="trust3Title">توافق تام للهواتف</strong>
                     <span class="en-font">iOS & Android First</span>
                 </div>
                 <div class="trust-cell">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#421d24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                     <strong data-i18n="trust4Title">ملكية 100% للعميل</strong>
                     <span data-i18n="trust4Sub">تسليم كامل الملفات</span>
                 </div>
@@ -973,44 +1141,62 @@
                     <p data-i18n="suiteSub">نطور الأنظمة الرقمية والمواقع الاحترافية المصممة خصيصاً لتنمية أعمالك وزيادة ثقة عملائك.</p>
                 </div>
 
-                <div class="suite-tabs">
-                    <button type="button" class="suite-tab active" onclick="filterSuite('all', this)" data-i18n="tabAll">جميع الحلول</button>
-                    <button type="button" class="suite-tab" onclick="filterSuite('ai', this)" data-i18n="tabAI">منصات الذكاء الاصطناعي</button>
-                    <button type="button" class="suite-tab" onclick="filterSuite('web', this)" data-i18n="tabWeb">مواقع الشركات</button>
+                <div class="suite-tabs" role="tablist">
+                    <button type="button" class="suite-tab active" onclick="filterSuite('all', this)">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                        <span data-i18n="tabAll">جميع الحلول</span>
+                    </button>
+                    <button type="button" class="suite-tab" onclick="filterSuite('ai', this)">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                        <span data-i18n="tabAI">منصات الذكاء الاصطناعي</span>
+                    </button>
+                    <button type="button" class="suite-tab" onclick="filterSuite('web', this)">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                        <span data-i18n="tabWeb">مواقع الشركات</span>
+                    </button>
                 </div>
 
                 <div class="cards-grid-3">
                     <div class="suite-card" data-cat="ai">
                         <div>
                             <div class="card-icon">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
                             </div>
                             <h3 data-i18n="s1Title">بناء منصات الذكاء الاصطناعي</h3>
                             <p data-i18n="s1Desc">تطوير تطبيقات ومنصات ويب مدعومة بنماذج الذكاء الاصطناعي لأتمتة الأعمال وتقديم خدمات رقمية حديثة.</p>
                         </div>
-                        <button type="button" class="violet-link" onclick="openProject('p1')" data-i18n="learnMore">تفاصيل البنية البرمجية &larr;</button>
+                        <button type="button" class="violet-link" onclick="openProject('p1')">
+                            <span data-i18n="learnMore">تفاصيل البنية البرمجية</span>
+                            <svg class="dir-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                        </button>
                     </div>
 
                     <div class="suite-card" data-cat="web">
                         <div>
                             <div class="card-icon">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
                             </div>
                             <h3 data-i18n="s2Title">مواقع الشركات والمراكز الطبية</h3>
                             <p data-i18n="s2Desc">واجهات تعريفية عالية الثقة تعرض خدماتك ومشاريعك مع ربط مباشر بقنوات التواصل ونظام حجز المواعيد.</p>
                         </div>
-                        <button type="button" class="violet-link" onclick="openProject('p2')" data-i18n="learnMore">تفاصيل البنية البرمجية &larr;</button>
+                        <button type="button" class="violet-link" onclick="openProject('p2')">
+                            <span data-i18n="learnMore">تفاصيل البنية البرمجية</span>
+                            <svg class="dir-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                        </button>
                     </div>
 
                     <div class="suite-card" data-cat="ai web">
                         <div>
                             <div class="card-icon">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
                             </div>
                             <h3 data-i18n="s3Title">مساعد خدمة العملاء الذكي</h3>
                             <p data-i18n="s3Desc">ربط موقعك بمساعد ذكي مدرب على بيانات نشاطك التجاري للرد على استفسارات الزبائن على مدار الساعة.</p>
                         </div>
-                        <button type="button" class="violet-link" onclick="openProject('p3')" data-i18n="learnMore">تفاصيل البنية البرمجية &larr;</button>
+                        <button type="button" class="violet-link" onclick="openProject('p3')">
+                            <span data-i18n="learnMore">تفاصيل البنية البرمجية</span>
+                            <svg class="dir-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -1040,13 +1226,19 @@
                 </div>
 
                 <div class="dark-band-content">
-                    <span class="tag-pill" data-i18n="voltBadge">مشروع حقيقي مُطلق | Live Platform</span>
+                    <span class="tag-pill">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                        <span data-i18n="voltBadge">مشروع حقيقي مُطلق | Live Platform</span>
+                    </span>
                     <h2 class="en-font">VoltAI Platform</h2>
                     <p data-i18n="voltDesc">
                         منصة VoltAI هي أحد مشاريعنا الهندسية المتكاملة في مجال الذكاء الاصطناعي؛ تم تطويرها لتوفير أدوات ذكية سريعة الاستجابة تساعد المستخدمين وأصحاب الأعمال على إنجاز المهام المعقدة، توليد المحتوى، وتحليل البيانات عبر واجهة عصرية فائقة السرعة.
                     </p>
                     <div class="dark-band-actions">
-                        <a href="https://volt-ai.std24341059.workers.dev/" target="_blank" rel="noopener noreferrer" class="btn-ghost-white" data-i18n="voltBtnVisit">زيارة منصة VoltAI مباشرة</a>
+                        <a href="https://volt-ai.std24341059.workers.dev/" target="_blank" rel="noopener noreferrer" class="btn-ghost-white">
+                            <span data-i18n="voltBtnVisit">زيارة منصة VoltAI مباشرة</span>
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                        </a>
                         <a href="#contact" class="btn-lilac" style="border-color: transparent;" data-i18n="voltBtnOrder">اطلب بناء منصة مماثلة</a>
                     </div>
                 </div>
@@ -1080,7 +1272,10 @@
         <div class="gradient-banner-wrap">
             <div class="gradient-banner">
                 <h2 data-i18n="bannerCtaTitle">حوّل فكرتك الرقمية إلى منصة حقيقية جاهزة للعمل</h2>
-                <a href="#contact" class="btn-wine" data-i18n="navCta">ابدأ مشروعك</a>
+                <a href="#contact" class="btn-wine">
+                    <span data-i18n="navCta">ابدأ مشروعك</span>
+                    <svg class="dir-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                </a>
             </div>
         </div>
 
@@ -1103,32 +1298,59 @@
                         <label for="projectIdeaInput" class="brief-label" data-i18n="briefInputLabel">2. نبذة قصيرة عن فكرتك (اختياري):</label>
                         <input type="text" id="projectIdeaInput" class="brief-input" placeholder="مثال: أرغب ببناء موقع تعريفي لعيادتي مع نظام حجز..." data-i18n-placeholder="briefPlaceholder">
 
-                        <button type="button" onclick="sendWhatsAppBrief()" class="btn-wine" style="width: 100%;" data-i18n="briefSendBtn">إرسال تفاصيل المشروع عبر واتساب</button>
+                        <button type="button" onclick="sendWhatsAppBrief()" class="btn-wine" style="width: 100%;">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                            <span data-i18n="briefSendBtn">إرسال تفاصيل المشروع عبر واتساب</span>
+                        </button>
                     </div>
 
                     <div class="channels-list">
+                        <!-- WhatsApp Full-Colour Brand SVG -->
                         <a href="https://wa.me/9647850772200" target="_blank" rel="noopener noreferrer" class="channel-item">
-                            <div>
-                                <strong data-i18n="chWhatsapp">واتساب مباشر</strong>
-                                <span>+964 785 077 2200</span>
+                            <div class="channel-left">
+                                <div class="brand-icon-box wa" aria-hidden="true">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="#25D366"><path d="M12.031 2c-5.516 0-9.969 4.453-9.969 9.969 0 1.758.459 3.473 1.331 4.986L2 22l5.188-1.361a9.927 9.927 0 0 0 4.843 1.258h.004c5.515 0 9.969-4.453 9.969-9.969A9.936 9.936 0 0 0 12.031 2zm5.803 14.133c-.245.691-1.423 1.321-1.976 1.404-.507.076-1.148.108-1.852-.116-.427-.136-.975-.318-1.678-.622-2.952-1.275-4.88-4.247-5.028-4.444-.147-.197-1.2-1.597-1.2-3.046 0-1.449.759-2.161 1.028-2.456.27-.295.589-.369.785-.369.196 0 .393.002.564.01.181.009.424-.069.663.506.245.591.834 2.036.908 2.184.073.148.122.32.024.517-.098.197-.147.32-.294.492-.147.172-.309.384-.442.516-.147.147-.301.307-.129.602.172.295.763 1.259 1.638 2.039 1.126 1.004 2.075 1.315 2.37 1.462.294.148.466.123.638-.074.172-.197.736-.86.932-1.155.196-.295.393-.246.662-.148.27.099 1.718.81 2.012.958.295.147.491.221.564.344.074.123.074.713-.171 1.404z"/></svg>
+                                </div>
+                                <div>
+                                    <strong data-i18n="chWhatsapp">واتساب مباشر</strong>
+                                    <span>+964 785 077 2200</span>
+                                </div>
                             </div>
-                            <span>&nearr;</span>
+                            <div class="ext-arrow-box" aria-hidden="true">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                            </div>
                         </a>
 
+                        <!-- Telegram Full-Colour Brand SVG -->
                         <a href="https://t.me/mzr_eng" target="_blank" rel="noopener noreferrer" class="channel-item">
-                            <div>
-                                <strong data-i18n="chTelegram">تليجرام</strong>
-                                <span>@mzr_eng</span>
+                            <div class="channel-left">
+                                <div class="brand-icon-box tg" aria-hidden="true">
+                                    <svg width="21" height="21" viewBox="0 0 24 24" fill="#26A5E4"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                                </div>
+                                <div>
+                                    <strong data-i18n="chTelegram">تليجرام</strong>
+                                    <span>@mzr_eng</span>
+                                </div>
                             </div>
-                            <span>&nearr;</span>
+                            <div class="ext-arrow-box" aria-hidden="true">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                            </div>
                         </a>
 
+                        <!-- Instagram Full-Colour Brand SVG -->
                         <a href="https://instagram.com/0dst" target="_blank" rel="noopener noreferrer" class="channel-item">
-                            <div>
-                                <strong data-i18n="chInstagram">إنستغرام</strong>
-                                <span>@0dst</span>
+                            <div class="channel-left">
+                                <div class="brand-icon-box ig" aria-hidden="true">
+                                    <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#E1306C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                                </div>
+                                <div>
+                                    <strong data-i18n="chInstagram">إنستغرام</strong>
+                                    <span>@0dst</span>
+                                </div>
                             </div>
-                            <span>&nearr;</span>
+                            <div class="ext-arrow-box" aria-hidden="true">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                            </div>
                         </a>
                     </div>
                 </div>
@@ -1181,7 +1403,7 @@
         const i18n = {
             ar: {
                 dir: 'rtl',
-                bannerText: 'إطلاق منصة VoltAI — أحدث أنظمة الذكاء الاصطناعي من تطوير Babylon Web',
+                bannerText: 'إطلاق منصة VoltAI | أحدث أنظمة الذكاء الاصطناعي من تطوير Babylon Web',
                 bannerLink: 'تجربة المنصة',
                 navServices: 'الحلول والخدمات',
                 navVolt: 'منصة VoltAI',
@@ -1215,7 +1437,7 @@
                 s2Desc: 'واجهات تعريفية عالية الثقة تعرض خدماتك ومشاريعك مع ربط مباشر بقنوات التواصل ونظام حجز المواعيد.',
                 s3Title: 'مساعد خدمة العملاء الذكي',
                 s3Desc: 'ربط موقعك بمساعد ذكي مدرب على بيانات نشاطك التجاري للرد على استفسارات الزبائن على مدار الساعة.',
-                learnMore: 'تفاصيل البنية البرمجية ←',
+                learnMore: 'تفاصيل البنية البرمجية',
                 voltBoxTitle: 'هندسة متكاملة من الصفر إلى الإطلاق',
                 voltSpec1Label: 'الفئة المستهدفة',
                 voltSpec1Short: 'رواد الأعمال والفرق التقنية',
@@ -1261,7 +1483,7 @@
             },
             en: {
                 dir: 'ltr',
-                bannerText: 'VoltAI Launch — Next-gen AI productivity platform engineered by Babylon Web',
+                bannerText: 'VoltAI Launch | Next-gen AI productivity platform engineered by Babylon Web',
                 bannerLink: 'Explore Live',
                 navServices: 'Solutions',
                 navVolt: 'VoltAI Platform',
@@ -1295,7 +1517,7 @@
                 s2Desc: 'High-trust websites showcasing your services and portfolio with direct mobile communication and booking.',
                 s3Title: 'Smart Customer Assistant',
                 s3Desc: 'Embedding custom AI assistants trained on your business data to answer client inquiries 24/7.',
-                learnMore: 'Architecture details →',
+                learnMore: 'Architecture details',
                 voltBoxTitle: 'End-to-End Engineering from Zero to Launch',
                 voltSpec1Label: 'Target Audience',
                 voltSpec1Short: 'Founders & Tech Teams',
@@ -1341,7 +1563,7 @@
             },
             ku: {
                 dir: 'rtl',
-                bannerText: 'بڵاوکردنەوەی پلاتفۆرمی VoltAI — نوێترین سیستەمی ژیری دەستکرد لەلایەن Babylon Web',
+                bannerText: 'بڵاوکردنەوەی پلاتفۆرمی VoltAI | نوێترین سیستەمی ژیری دەستکرد لەلایەن Babylon Web',
                 bannerLink: 'تاقیکردنەوە',
                 navServices: 'خزمەتگوزارییەکان',
                 navVolt: 'پلاتفۆرمی VoltAI',
@@ -1375,7 +1597,7 @@
                 s2Desc: 'ڕووکاری فەرمی و متمانەپێکراو بۆ نمایشکردنی خزمەتگوزارییەکان و پەیوەندیکردنی خێرا.',
                 s3Title: 'یاریدەدەری زیرەکی کڕیاران',
                 s3Desc: 'بەستنەوەی ماڵپەڕەکەت بە یاریدەدەرێکی زیرەک بۆ وەڵامدانەوەی کڕیاران بە درێژایی ٢٤ کاتژمێر.',
-                learnMore: 'وردەکاری تەکنیکی ←',
+                learnMore: 'وردەکاری تەکنیکی',
                 voltBoxTitle: 'ئەندازیاری تەواو لە سەرەتاوە تا بڵاوکردنەوە',
                 voltSpec1Label: 'بۆ کێ گونجاوە',
                 voltSpec1Short: 'خاوەنکاران و تیمە تەکنیکییەکان',
