@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google" content="notranslate">
     <title>Babylon Web | هندسة منصات الذكاء الاصطناعي وتطوير المواقع</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='12' fill='%230A0A0A'/%3E%3Cpath d='M12 34H36M15 28H33M18 22H30' stroke='%23E2C07D' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='12' fill='%23421d24'/%3E%3Cpath d='M13 33H35M16 26H32M19 19H29' stroke='%23f2f0eb' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         /* إخفاء أي عنوان تلقائي يضيفه GitHub Pages */
         .markdown-body > h1:first-child,
@@ -17,16 +17,22 @@
         }
 
         :root {
-            --bg-base: #060709;
-            --bg-surface: #0D0F14;
-            --bg-panel: #14171F;
-            --text-main: #FAFAFA;
-            --text-muted: #A1A1AA;
-            --accent: #E2C07D;
-            --accent-hover: #EDD39E;
-            --border-dim: #20242E;
-            --border-strong: #343A4A;
-            --radius: 8px;
+            /* Superhuman Editorial Palette */
+            --color-midnight-wine: #421d24;
+            --color-royal-violet: #714cb6;
+            --color-lilac-mist: #d4c7ff;
+            --color-deep-lagoon: #0c4243;
+            --color-warm-parchment: #f2f0eb;
+            --color-soft-mist: #e3e3e2;
+            --color-ink-charcoal: #292827;
+            --color-stone-gray: #666666;
+            --color-paper-white: #ffffff;
+
+            /* Radii */
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-pill: 999px;
         }
 
         * {
@@ -40,34 +46,66 @@
         }
 
         body {
-            background-color: var(--bg-base);
-            color: var(--text-main);
-            font-family: 'IBM Plex Sans Arabic', sans-serif;
-            line-height: 1.65;
+            background-color: var(--color-warm-parchment);
+            color: var(--color-ink-charcoal);
+            font-family: 'IBM Plex Sans Arabic', 'Inter', sans-serif;
+            line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
         }
 
         .en-font {
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: 'Inter', sans-serif;
+            font-feature-settings: "ss01" on, "tnum" on;
         }
 
         .container {
-            max-width: 1160px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 24px;
         }
 
-        /* Header */
+        /* Top Announcement Banner (Midnight Wine) */
+        .top-banner {
+            background-color: var(--color-midnight-wine);
+            color: var(--color-paper-white);
+            font-size: 0.85rem;
+            padding: 10px 16px;
+            text-align: center;
+        }
+
+        .top-banner-inner {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .top-banner a {
+            color: var(--color-paper-white);
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            padding: 3px 12px;
+            border-radius: var(--radius-pill);
+            font-size: 0.78rem;
+            transition: background 0.2s;
+        }
+
+        .top-banner a:hover {
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        /* Sticky Header with Backdrop Blur */
         header {
             position: sticky;
             top: 0;
             z-index: 100;
-            background: rgba(6, 7, 9, 0.92);
+            background: rgba(242, 240, 235, 0.82);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-dim);
-            height: 72px;
+            border-bottom: 1px solid var(--color-soft-mist);
+            height: 68px;
             display: flex;
             align-items: center;
         }
@@ -77,50 +115,65 @@
             justify-content: space-between;
             align-items: center;
             width: 100%;
-            gap: 12px;
+            gap: 16px;
         }
 
         .brand {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             text-decoration: none;
-            color: var(--text-main);
+            color: var(--color-ink-charcoal);
         }
 
-        .brand-text {
+        .brand-mark {
+            width: 34px;
+            height: 34px;
+            background: var(--color-midnight-wine);
+            border-radius: 9px;
             display: flex;
-            flex-direction: column;
-            line-height: 1.2;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-warm-parchment);
         }
 
         .brand-name {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 700;
-            letter-spacing: 0.4px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: var(--color-ink-charcoal);
         }
 
-        .brand-name span {
-            color: var(--accent);
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
         }
 
-        .brand-sub {
-            font-size: 0.72rem;
-            color: var(--text-muted);
+        .nav-links a {
+            text-decoration: none;
+            color: var(--color-ink-charcoal);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-royal-violet);
         }
 
         .header-controls {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
         }
 
         .lang-switcher {
             display: inline-flex;
-            background: var(--bg-surface);
-            border: 1px solid var(--border-dim);
-            border-radius: var(--radius);
+            background: var(--color-paper-white);
+            border: 1px solid var(--color-soft-mist);
+            border-radius: var(--radius-sm);
             padding: 3px;
             gap: 2px;
         }
@@ -128,378 +181,530 @@
         .lang-btn {
             background: transparent;
             border: none;
-            color: var(--text-muted);
+            color: var(--color-stone-gray);
             font-family: inherit;
             font-size: 0.78rem;
             font-weight: 600;
-            padding: 6px 10px;
+            padding: 5px 9px;
             border-radius: 5px;
             cursor: pointer;
             transition: background 0.15s, color 0.15s;
         }
 
         .lang-btn.active {
-            background: var(--accent);
-            color: #060709;
+            background: var(--color-lilac-mist);
+            color: var(--color-ink-charcoal);
         }
 
-        .lang-btn:hover:not(.active) {
-            color: var(--text-main);
+        /* Superhuman Buttons */
+        .btn-wine {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            min-height: 46px;
+            padding: 0 22px;
+            background-color: var(--color-midnight-wine);
+            color: var(--color-paper-white);
+            border: none;
+            border-radius: var(--radius-lg);
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+            transition: opacity 0.2s, transform 0.1s;
         }
 
-        /* Buttons */
-        .btn {
+        .btn-wine:hover {
+            opacity: 0.92;
+        }
+
+        .btn-wine:active {
+            transform: translateY(1px);
+        }
+
+        .btn-lilac {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            min-height: 40px;
+            padding: 6px 16px;
+            background-color: var(--color-lilac-mist);
+            color: var(--color-ink-charcoal);
+            border: 1px solid var(--color-ink-charcoal);
+            border-radius: var(--radius-sm);
+            font-family: inherit;
+            font-size: 0.88rem;
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+        }
+
+        .btn-lilac:hover {
+            background-color: #c5b3ff;
+        }
+
+        .btn-ghost-white {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
             min-height: 44px;
-            padding: 0 22px;
+            padding: 8px 20px;
+            background: transparent;
+            color: var(--color-paper-white);
+            border: 1px solid var(--color-paper-white);
+            border-radius: var(--radius-sm);
             font-family: inherit;
-            font-size: 0.9rem;
-            font-weight: 600;
-            border-radius: var(--radius);
+            font-size: 0.92rem;
+            font-weight: 500;
             text-decoration: none;
             cursor: pointer;
-            border: 1px solid transparent;
-            transition: background 0.15s, border-color 0.15s, transform 0.1s;
+            transition: background 0.2s;
         }
 
-        .btn:active {
-            transform: translateY(1px);
+        .btn-ghost-white:hover {
+            background: rgba(255, 255, 255, 0.12);
         }
 
-        .btn-primary {
-            background: var(--accent);
-            color: #060709;
+        .violet-link {
+            color: var(--color-royal-violet);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
         }
 
-        .btn-primary:hover {
-            background: var(--accent-hover);
+        .violet-link:hover {
+            text-decoration: underline;
         }
 
-        .btn-secondary {
-            background: var(--bg-surface);
-            color: var(--text-main);
-            border-color: var(--border-dim);
+        /* Editorial Hero with Warm Golden-Hour Atmosphere & Floating Glass UI */
+        .hero-wrapper {
+            padding: 20px 24px 0;
+            max-width: 1248px;
+            margin: 0 auto;
         }
 
-        .btn-secondary:hover {
-            background: var(--bg-panel);
-            border-color: var(--border-strong);
-        }
-
-        /* Hero Section (Visible Immediately - Zero Opacity Trap) */
-        .hero {
-            padding: 72px 0 84px;
-            border-bottom: 1px solid var(--border-dim);
+        .hero-canvas {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            padding: 80px 40px;
+            background: 
+                radial-gradient(circle at 80% 25%, rgba(212, 199, 255, 0.55) 0%, transparent 50%),
+                radial-gradient(circle at 18% 75%, rgba(229, 195, 166, 0.55) 0%, transparent 55%),
+                linear-gradient(160deg, #ebe6dc 0%, #dfd7c8 50%, #d6cbb9 100%);
+            border: 1px solid var(--color-soft-mist);
         }
 
         .hero-grid {
+            max-width: 1120px;
+            margin: 0 auto;
             display: grid;
             grid-template-columns: 1.15fr 0.85fr;
             gap: 48px;
             align-items: center;
         }
 
-        .hero-badge {
+        .hero-eyebrow {
             display: inline-block;
-            font-size: 0.8rem;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--color-midnight-wine);
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(66, 29, 36, 0.15);
+            padding: 5px 14px;
+            border-radius: var(--radius-pill);
+            margin-bottom: 20px;
+        }
+
+        .hero-canvas h1 {
+            font-size: clamp(2.1rem, 4.5vw, 3.6rem);
             font-weight: 500;
-            color: var(--accent);
-            background: rgba(226, 192, 125, 0.08);
-            border: 1px solid rgba(226, 192, 125, 0.25);
-            padding: 6px 14px;
-            border-radius: 6px;
-            margin-bottom: 22px;
-        }
-
-        .hero h1 {
-            font-size: clamp(2rem, 4.2vw, 3.1rem);
-            font-weight: 700;
-            line-height: 1.25;
-            margin-bottom: 18px;
-        }
-
-        .hero h1 span {
-            color: var(--accent);
+            line-height: 1.12;
+            letter-spacing: -0.025em;
+            color: var(--color-ink-charcoal);
+            margin-bottom: 20px;
         }
 
         .hero-desc {
-            font-size: 1.05rem;
-            color: var(--text-muted);
-            max-width: 540px;
+            font-size: 1.08rem;
+            color: var(--color-ink-charcoal);
+            opacity: 0.85;
+            max-width: 520px;
             margin-bottom: 32px;
+            line-height: 1.65;
         }
 
         .hero-actions {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
-            margin-bottom: 40px;
-        }
-
-        .hero-facts {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-            padding-top: 24px;
-            border-top: 1px solid var(--border-dim);
-        }
-
-        .fact-item strong {
-            display: block;
-            font-size: 0.95rem;
-            color: var(--text-main);
-            margin-bottom: 2px;
-        }
-
-        .fact-item span {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        /* Live Architecture Card */
-        .system-card {
-            background: var(--bg-surface);
-            border: 1px solid var(--border-dim);
-            border-radius: 12px;
-            overflow: hidden;
-        }
-
-        .system-card-top {
-            background: var(--bg-panel);
-            padding: 12px 18px;
-            border-bottom: 1px solid var(--border-dim);
-            display: flex;
-            justify-content: space-between;
             align-items: center;
-            font-size: 0.8rem;
-            color: var(--text-muted);
+            gap: 14px;
         }
 
-        .system-card-body {
-            padding: 24px;
+        /* Floating Translucent UI Cards (Signature Superhuman Move) */
+        .floating-stack {
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 14px;
         }
 
-        .sys-row {
+        .floating-ui-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: var(--radius-lg);
+            padding: 18px 20px;
+        }
+
+        .floating-ui-head {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-bottom: 12px;
-            border-bottom: 1px solid var(--border-dim);
-            font-size: 0.88rem;
-        }
-
-        .sys-row:last-of-type {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-
-        .sys-key {
-            color: var(--text-muted);
-        }
-
-        .sys-val {
-            color: var(--text-main);
-            font-weight: 600;
-        }
-
-        .sys-val.gold {
-            color: var(--accent);
-        }
-
-        /* Sections */
-        .section {
-            padding: 80px 0;
-            border-bottom: 1px solid var(--border-dim);
-        }
-
-        .section-head {
-            margin-bottom: 44px;
-            max-width: 620px;
-        }
-
-        .section-tag {
-            display: block;
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--accent);
             margin-bottom: 8px;
+            font-size: 0.82rem;
         }
 
-        .section-head h2 {
-            font-size: clamp(1.6rem, 3vw, 2.2rem);
-            font-weight: 700;
-            margin-bottom: 10px;
+        .ui-badge-lilac {
+            background: var(--color-lilac-mist);
+            color: var(--color-ink-charcoal);
+            padding: 2px 10px;
+            border-radius: var(--radius-pill);
+            font-weight: 600;
+            font-size: 0.75rem;
         }
 
-        .section-head p {
-            color: var(--text-muted);
-            font-size: 0.98rem;
-        }
-
-        /* Flagship Card */
-        .flagship {
-            background: var(--bg-surface);
-            border: 1px solid var(--border-strong);
-            border-radius: 12px;
-            padding: 32px;
-            margin-bottom: 28px;
-        }
-
-        .flagship-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            gap: 16px;
-            margin-bottom: 18px;
-        }
-
-        .flagship h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
+        .floating-ui-card h3 {
+            font-size: 1.02rem;
+            font-weight: 600;
+            color: var(--color-ink-charcoal);
             margin-bottom: 4px;
         }
 
-        .flagship-sub {
-            color: var(--accent);
-            font-size: 0.9rem;
+        .floating-ui-card p {
+            font-size: 0.88rem;
+            color: var(--color-stone-gray);
+        }
+
+        /* Trust Strip Row (Square Monochrome Cells) */
+        .trust-band {
+            max-width: 1200px;
+            margin: 40px auto 0;
+            padding: 0 24px;
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            background: var(--color-paper-white);
+            border: 1px solid var(--color-soft-mist);
+        }
+
+        .trust-cell {
+            padding: 22px 16px;
+            text-align: center;
+            border-inline-end: 1px solid var(--color-soft-mist);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .trust-cell:last-child {
+            border-inline-end: none;
+        }
+
+        .trust-cell strong {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--color-ink-charcoal);
+        }
+
+        .trust-cell span {
+            font-size: 0.8rem;
+            color: var(--color-stone-gray);
+            margin-top: 2px;
+        }
+
+        /* Editorial Sections */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-head {
+            margin-bottom: 40px;
+            max-width: 640px;
+        }
+
+        .section-head h2 {
+            font-size: clamp(1.85rem, 3.5vw, 2.8rem);
             font-weight: 500;
+            line-height: 1.12;
+            letter-spacing: -0.02em;
+            color: var(--color-ink-charcoal);
+            margin-bottom: 12px;
         }
 
-        .flagship-desc {
-            color: var(--text-muted);
-            max-width: 780px;
-            margin-bottom: 24px;
-            font-size: 0.98rem;
+        .section-head p {
+            color: var(--color-stone-gray);
+            font-size: 1.02rem;
         }
 
-        .specs-grid {
+        /* Suite Tab Strip + Product Cards */
+        .suite-tabs {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-            margin-bottom: 26px;
+            background: var(--color-paper-white);
+            border: 1px solid var(--color-soft-mist);
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            margin-bottom: 24px;
         }
 
-        .spec-box {
-            background: var(--bg-panel);
-            border: 1px solid var(--border-dim);
-            border-radius: var(--radius);
+        .suite-tab {
             padding: 16px;
-        }
-
-        .spec-box span {
-            display: block;
-            font-size: 0.78rem;
-            color: var(--accent);
+            text-align: center;
             font-weight: 600;
-            margin-bottom: 6px;
+            font-size: 0.95rem;
+            color: var(--color-ink-charcoal);
+            background: var(--color-paper-white);
+            border: none;
+            border-inline-end: 1px solid var(--color-soft-mist);
+            cursor: pointer;
+            font-family: inherit;
+            transition: background 0.2s;
         }
 
-        .spec-box p {
-            font-size: 0.88rem;
-            color: var(--text-main);
+        .suite-tab:last-child {
+            border-inline-end: none;
         }
 
-        .flagship-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
+        .suite-tab.active {
+            background: var(--color-lilac-mist);
         }
 
-        /* Grid 3 */
-        .grid-3 {
+        .cards-grid-3 {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
         }
 
-        .card {
-            background: var(--bg-surface);
-            border: 1px solid var(--border-dim);
-            border-radius: 10px;
-            padding: 26px;
+        .suite-card {
+            background: var(--color-paper-white);
+            border: 1px solid var(--color-soft-mist);
+            border-radius: var(--radius-lg);
+            padding: 24px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: border-color 0.2s, transform 0.2s;
+            transition: border-color 0.2s;
         }
 
-        .card:hover {
-            border-color: var(--border-strong);
-            transform: translateY(-2px);
+        .suite-card:hover {
+            border-color: var(--color-ink-charcoal);
         }
 
-        .card-cat {
-            font-size: 0.76rem;
-            color: var(--accent);
+        .card-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: var(--color-warm-parchment);
+            border: 1px solid var(--color-soft-mist);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-midnight-wine);
+            margin-bottom: 16px;
+        }
+
+        .suite-card h3 {
+            font-size: 1.18rem;
             font-weight: 600;
-            margin-bottom: 10px;
-            display: block;
+            color: var(--color-ink-charcoal);
+            margin-bottom: 8px;
         }
 
-        .card h3 {
-            font-size: 1.15rem;
-            font-weight: 700;
-            margin-bottom: 10px;
+        .suite-card p {
+            font-size: 0.94rem;
+            color: var(--color-stone-gray);
+            margin-bottom: 20px;
+            line-height: 1.6;
         }
 
-        .card p {
-            color: var(--text-muted);
-            font-size: 0.92rem;
-            margin-bottom: 22px;
+        /* Dark Feature Band (Deep Lagoon #0c4243) — Flagship VoltAI Showcase */
+        .dark-band {
+            background-color: var(--color-deep-lagoon);
+            color: var(--color-paper-white);
+            padding: 88px 0;
+            margin: 20px 0;
         }
 
-        /* FAQ */
+        .dark-band-grid {
+            display: grid;
+            grid-template-columns: 0.95fr 1.05fr;
+            gap: 56px;
+            align-items: center;
+        }
+
+        /* Layered Geometric Collage Art (Left side of Dark Band) */
+        .lagoon-collage {
+            position: relative;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            border-radius: 20px;
+            padding: 28px;
+            overflow: hidden;
+        }
+
+        .collage-layer-1 {
+            background: rgba(212, 199, 255, 0.16);
+            border: 1px solid rgba(212, 199, 255, 0.3);
+            border-radius: 14px;
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+
+        .collage-layer-2 {
+            background: rgba(255, 255, 255, 0.92);
+            color: var(--color-ink-charcoal);
+            border-radius: 14px;
+            padding: 20px;
+        }
+
+        .collage-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--color-soft-mist);
+            font-size: 0.86rem;
+        }
+
+        .collage-row:last-child {
+            border-bottom: none;
+        }
+
+        .dark-band-content .tag-pill {
+            display: inline-block;
+            background: rgba(212, 199, 255, 0.18);
+            color: var(--color-lilac-mist);
+            padding: 5px 14px;
+            border-radius: var(--radius-pill);
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 18px;
+        }
+
+        .dark-band-content h2 {
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            font-weight: 500;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-bottom: 18px;
+            color: var(--color-paper-white);
+        }
+
+        .dark-band-content p {
+            color: rgba(255, 255, 255, 0.82);
+            font-size: 1.02rem;
+            margin-bottom: 28px;
+            line-height: 1.7;
+        }
+
+        .dark-band-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        /* Atmospheric Gradient Banner (Superhuman Style) */
+        .gradient-banner-wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .gradient-banner {
+            border-radius: 24px;
+            padding: 56px 44px;
+            border: 1px solid var(--color-soft-mist);
+            background:
+                radial-gradient(circle at 68% 50%, rgba(113, 76, 182, 0.18) 0%, transparent 45%),
+                radial-gradient(circle at 93% 50%, rgba(56, 189, 248, 0.16) 0%, transparent 40%),
+                radial-gradient(circle at 30% 80%, rgba(212, 199, 255, 0.45) 0%, transparent 50%),
+                var(--color-paper-white);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .gradient-banner h2 {
+            font-size: clamp(1.6rem, 3.2vw, 2.5rem);
+            font-weight: 500;
+            color: var(--color-ink-charcoal);
+            max-width: 620px;
+            line-height: 1.2;
+        }
+
+        /* FAQ Accordion Cards */
         .faq-grid {
             display: grid;
-            gap: 14px;
-            max-width: 820px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
         }
 
-        .faq-item {
-            background: var(--bg-surface);
-            border: 1px solid var(--border-dim);
-            border-radius: var(--radius);
-            padding: 20px 24px;
+        .faq-card {
+            background: var(--color-paper-white);
+            border: 1px solid var(--color-soft-mist);
+            border-radius: var(--radius-lg);
+            padding: 24px;
         }
 
-        .faq-item h4 {
-            font-size: 1.02rem;
-            color: var(--text-main);
-            margin-bottom: 6px;
+        .faq-card h4 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--color-ink-charcoal);
+            margin-bottom: 10px;
         }
 
-        .faq-item p {
+        .faq-card p {
             font-size: 0.92rem;
-            color: var(--text-muted);
+            color: var(--color-stone-gray);
+            line-height: 1.65;
         }
 
-        /* Contact & Brief Builder */
+        /* Contact & WhatsApp Brief Section */
         .contact-grid {
             display: grid;
             grid-template-columns: 1.2fr 0.8fr;
-            gap: 32px;
+            gap: 28px;
             align-items: start;
         }
 
-        .brief-box {
-            background: var(--bg-surface);
-            border: 1px solid var(--border-dim);
-            border-radius: 12px;
+        .brief-card {
+            background: var(--color-paper-white);
+            border: 1px solid var(--color-soft-mist);
+            border-radius: var(--radius-lg);
             padding: 28px;
         }
 
         .brief-label {
             display: block;
-            font-size: 0.88rem;
+            font-size: 0.9rem;
             font-weight: 600;
-            color: var(--text-main);
+            color: var(--color-ink-charcoal);
             margin-bottom: 10px;
         }
 
@@ -511,91 +716,125 @@
         }
 
         .type-pill {
-            background: var(--bg-panel);
-            border: 1px solid var(--border-dim);
-            color: var(--text-muted);
+            background: var(--color-warm-parchment);
+            border: 1px solid var(--color-soft-mist);
+            color: var(--color-ink-charcoal);
             padding: 8px 14px;
-            border-radius: 6px;
+            border-radius: var(--radius-sm);
             font-family: inherit;
-            font-size: 0.84rem;
-            font-weight: 600;
+            font-size: 0.86rem;
+            font-weight: 500;
             cursor: pointer;
-            min-height: 40px;
+            min-height: 42px;
             transition: all 0.15s;
         }
 
         .type-pill.selected {
-            background: rgba(226, 192, 125, 0.15);
-            border-color: var(--accent);
-            color: var(--accent);
+            background: var(--color-lilac-mist);
+            border-color: var(--color-ink-charcoal);
+            font-weight: 600;
         }
 
         .brief-input {
             width: 100%;
-            background: var(--bg-base);
-            border: 1px solid var(--border-dim);
-            border-radius: var(--radius);
+            background: var(--color-warm-parchment);
+            border: 1px solid var(--color-soft-mist);
+            border-radius: var(--radius-sm);
             padding: 12px 14px;
-            color: var(--text-main);
+            color: var(--color-ink-charcoal);
             font-family: inherit;
-            font-size: 0.92rem;
+            font-size: 0.94rem;
             margin-bottom: 18px;
         }
 
         .brief-input:focus {
             outline: none;
-            border-color: var(--accent);
+            border-color: var(--color-royal-violet);
+            background: var(--color-paper-white);
         }
 
-        .channels-stack {
+        .channels-list {
             display: flex;
             flex-direction: column;
             gap: 12px;
         }
 
-        .channel-card {
-            background: var(--bg-surface);
-            border: 1px solid var(--border-dim);
-            border-radius: 10px;
+        .channel-item {
+            background: var(--color-paper-white);
+            border: 1px solid var(--color-soft-mist);
+            border-radius: var(--radius-lg);
             padding: 18px 20px;
             text-decoration: none;
-            color: var(--text-main);
+            color: var(--color-ink-charcoal);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            min-height: 68px;
-            transition: border-color 0.2s, transform 0.2s;
+            transition: border-color 0.2s;
         }
 
-        .channel-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-2px);
+        .channel-item:hover {
+            border-color: var(--color-ink-charcoal);
         }
 
-        .channel-card strong {
+        .channel-item strong {
             display: block;
-            font-size: 0.95rem;
+            font-size: 0.96rem;
         }
 
-        .channel-card span {
-            font-size: 0.85rem;
-            color: var(--accent);
-            font-family: 'Space Grotesk', sans-serif;
+        .channel-item span {
+            font-size: 0.86rem;
+            color: var(--color-royal-violet);
+            font-family: 'Inter', sans-serif;
             direction: ltr;
             display: inline-block;
         }
 
-        /* Footer */
+        /* Midnight Wine Multi-Column Footer */
         footer {
-            padding: 36px 0;
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.85rem;
+            background-color: var(--color-midnight-wine);
+            color: var(--color-paper-white);
+            padding: 64px 0 48px;
+            margin-top: 40px;
         }
 
-        footer strong {
-            color: var(--accent);
-            font-family: 'Space Grotesk', sans-serif;
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+        }
+
+        .footer-col h4 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+            color: var(--color-paper-white);
+        }
+
+        .footer-col p,
+        .footer-col a {
+            display: block;
+            font-size: 0.88rem;
+            color: rgba(255, 255, 255, 0.72);
+            text-decoration: none;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .footer-col a:hover {
+            color: var(--color-paper-white);
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            padding-top: 24px;
+            font-size: 0.84rem;
+            color: rgba(255, 255, 255, 0.7);
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
         }
 
         /* Modal */
@@ -603,7 +842,8 @@
             display: none;
             position: fixed;
             inset: 0;
-            background: rgba(0, 0, 0, 0.85);
+            background: rgba(41, 40, 39, 0.65);
+            backdrop-filter: blur(4px);
             z-index: 999;
             align-items: center;
             justify-content: center;
@@ -611,24 +851,26 @@
         }
 
         .modal-card {
-            background: var(--bg-surface);
-            border: 1px solid var(--border-strong);
-            border-radius: 12px;
+            background: var(--color-paper-white);
+            border: 1px solid var(--color-soft-mist);
+            border-radius: var(--radius-lg);
             max-width: 480px;
             width: 100%;
             padding: 28px;
         }
 
         .modal-card h3 {
-            color: var(--accent);
+            color: var(--color-ink-charcoal);
             font-size: 1.25rem;
+            font-weight: 600;
             margin-bottom: 10px;
         }
 
         .modal-card p {
-            color: var(--text-muted);
+            color: var(--color-stone-gray);
             font-size: 0.95rem;
             margin-bottom: 22px;
+            line-height: 1.65;
         }
 
         .modal-actions {
@@ -638,49 +880,75 @@
         }
 
         /* Responsive */
-        @media (max-width: 900px) {
+        @media (max-width: 920px) {
+            .nav-links {
+                display: none;
+            }
             .hero-grid,
-            .specs-grid,
-            .grid-3,
-            .contact-grid {
+            .dark-band-grid,
+            .cards-grid-3,
+            .faq-grid,
+            .contact-grid,
+            .footer-grid {
                 grid-template-columns: 1fr;
+            }
+            .trust-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .trust-cell:nth-child(2) {
+                border-inline-end: none;
+            }
+            .trust-cell:nth-child(1),
+            .trust-cell:nth-child(2) {
+                border-bottom: 1px solid var(--color-soft-mist);
             }
         }
 
         @media (max-width: 600px) {
-            .brand-sub,
+            .hero-wrapper {
+                padding: 12px 16px 0;
+            }
+            .hero-canvas {
+                padding: 44px 22px;
+            }
             .header-cta {
                 display: none;
             }
-            .hero {
-                padding: 44px 0 56px;
-            }
-            .hero-facts {
-                grid-template-columns: 1fr;
-            }
-            .hero-actions .btn {
+            .hero-actions .btn-wine,
+            .hero-actions .btn-lilac {
                 width: 100%;
             }
-            .flagship {
-                padding: 22px;
+            .gradient-banner {
+                padding: 36px 24px;
             }
         }
     </style>
 </head>
 <body>
 
+    <!-- Top Wine Announcement Strip -->
+    <div class="top-banner">
+        <div class="top-banner-inner">
+            <span data-i18n="bannerText">إطلاق منصة VoltAI — أحدث أنظمة الذكاء الاصطناعي من تطوير Babylon Web</span>
+            <a href="https://volt-ai.std24341059.workers.dev/" target="_blank" rel="noopener noreferrer" data-i18n="bannerLink">تجربة المنصة</a>
+        </div>
+    </div>
+
+    <!-- Sticky Frosted Parchment Header -->
     <header>
         <div class="container nav-inner">
             <a href="#" class="brand">
-                <svg width="34" height="34" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="2" y="2" width="44" height="44" rx="10" fill="#14171F" stroke="#E2C07D" stroke-width="2"/>
-                    <path d="M13 33H35M16 26H32M19 19H29" stroke="#E2C07D" stroke-width="2.5" stroke-linecap="round"/>
-                </svg>
-                <div class="brand-text">
-                    <span class="brand-name">BABYLON <span>WEB</span></span>
-                    <span class="brand-sub" data-i18n="brandSub">هندسة الذكاء الاصطناعي والويب</span>
+                <div class="brand-mark">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 18h16M6 13h12M8 8h8"/></svg>
                 </div>
+                <span class="brand-name">Babylon Web</span>
             </a>
+
+            <nav class="nav-links" aria-label="Main Navigation">
+                <a href="#suite" data-i18n="navServices">الحلول والخدمات</a>
+                <a href="#voltai" data-i18n="navVolt">منصة VoltAI</a>
+                <a href="#faq" data-i18n="navFaq">الأسئلة الشائعة</a>
+            </nav>
 
             <div class="header-controls">
                 <div class="lang-switcher" role="group" aria-label="Language Switcher">
@@ -688,207 +956,209 @@
                     <button type="button" class="lang-btn" onclick="setLanguage('en')" id="btn-en">EN</button>
                     <button type="button" class="lang-btn" onclick="setLanguage('ku')" id="btn-ku">کوردی</button>
                 </div>
-                <a href="#contact" class="btn btn-primary header-cta" data-i18n="navCta">ابدأ مشروعك</a>
+                <a href="#contact" class="btn-lilac header-cta" data-i18n="navCta">ابدأ مشروعك</a>
             </div>
         </div>
     </header>
 
     <main>
-        <section class="hero">
-            <div class="container hero-grid">
-                <div>
-                    <span class="hero-badge" data-i18n="statusPill">متاحون لاستقبال مشاريع المواقع ومنصات الذكاء الاصطناعي</span>
-                    <h1 data-i18n="heroTitle">نحول أفكارك إلى <span>منصات ذكاء اصطناعي</span> ومواقع رقمية متكاملة</h1>
-                    <p class="hero-desc" data-i18n="heroDesc">
-                        في Babylon Web نصمم ونطور مواقع إلكترونية عالية الأداء، منصات مدعومة بالذكاء الاصطناعي، ومشاريع رقمية مخصصة تمنح عملك حضوراً موثوقاً وتجربة استخدام سلسة.
-                    </p>
-                    <div class="hero-actions">
-                        <a href="#contact" class="btn btn-primary" data-i18n="heroBtnPrimary">اطلب بناء مشروعك</a>
-                        <a href="#projects" class="btn btn-secondary" data-i18n="heroBtnSecondary">شاهد أعمالنا الحقيقية</a>
+        <!-- Editorial Golden-Hour Hero with Floating Glass Product Cards -->
+        <div class="hero-wrapper">
+            <section class="hero-canvas">
+                <div class="hero-grid">
+                    <div>
+                        <span class="hero-eyebrow" data-i18n="heroEyebrow">هندسة الذكاء الاصطناعي وتطوير الويب</span>
+                        <h1 data-i18n="heroTitle">نصمم منصات الذكاء الاصطناعي والمواقع الرقمية بسرعة ودقة</h1>
+                        <p class="hero-desc" data-i18n="heroDesc">
+                            في Babylon Web نحول أفكارك إلى مواقع شركات عالية الأداء ومنصات ذكاء اصطناعي متكاملة تمنح عملك حضوراً موثوقاً وتجربة استخدام استثنائية.
+                        </p>
+                        <div class="hero-actions">
+                            <a href="#contact" class="btn-wine">
+                                <span data-i18n="heroBtnPrimary">اطلب بناء مشروعك</span>
+                                <span aria-hidden="true">&larr;</span>
+                            </a>
+                            <a href="#voltai" class="btn-lilac" data-i18n="heroBtnSecondary">استكشف منصة VoltAI</a>
+                        </div>
                     </div>
-                    <div class="hero-facts">
-                        <div class="fact-item">
-                            <strong data-i18n="trust1Title">برمجة مخصصة</strong>
-                            <span data-i18n="trust1Desc">أكواد نظيفة وسريعة بدون قوالب</span>
+
+                    <!-- Floating Translucent Product UI Stack -->
+                    <div class="floating-stack">
+                        <div class="floating-ui-card">
+                            <div class="floating-ui-head">
+                                <span class="ui-badge-lilac en-font">VoltAI Live</span>
+                                <span class="en-font" style="color: var(--color-stone-gray);">Production</span>
+                            </div>
+                            <h3 data-i18n="float1Title">منصة ذكاء اصطناعي متكاملة</h3>
+                            <p data-i18n="float1Desc">أتمتة المهام وتوليد المحتوى عبر واجهة سريعة الاستجابة ومهيأة للهواتف.</p>
                         </div>
-                        <div class="fact-item">
-                            <strong data-i18n="trust2Title">تكامل الذكاء الاصطناعي</strong>
-                            <span data-i18n="trust2Desc">ربط الأنظمة الذكية والأتمتة</span>
-                        </div>
-                        <div class="fact-item">
-                            <strong data-i18n="trust3Title">ملكية كاملة للعميل</strong>
-                            <span data-i18n="trust3Desc">تسليم الكود المصدري 100%</span>
+
+                        <div class="floating-ui-card">
+                            <div class="floating-ui-head">
+                                <span class="ui-badge-lilac" data-i18n="float2Tag">تسليم سريع</span>
+                                <span class="en-font" style="color: var(--color-stone-gray);">3 - 7 Days</span>
+                            </div>
+                            <h3 data-i18n="float2Title">ملكية كاملة للكود المصدري</h3>
+                            <p data-i18n="float2Desc">تطوير مخصص بدون قوالب مكررة مع ربط الاستضافة والدومين باسمك 100%.</p>
                         </div>
                     </div>
                 </div>
+            </section>
+        </div>
 
-                <div class="system-card" aria-label="Production Architecture Overview">
-                    <div class="system-card-top">
-                        <span class="en-font">PRODUCTION STACK</span>
-                        <span class="en-font">BABYLON-CORE</span>
+        <!-- Monochrome Square Trust Strip -->
+        <div class="trust-band">
+            <div class="trust-grid">
+                <div class="trust-cell">
+                    <strong data-i18n="trust1Title">برمجة مخصصة</strong>
+                    <span data-i18n="trust1Sub">أكواد نظيفة وسريعة</span>
+                </div>
+                <div class="trust-cell">
+                    <strong data-i18n="trust2Title">تكامل الذكاء الاصطناعي</strong>
+                    <span data-i18n="trust2Sub">ربط الأنظمة الذكية</span>
+                </div>
+                <div class="trust-cell">
+                    <strong data-i18n="trust3Title">توافق تام للهواتف</strong>
+                    <span class="en-font">iOS & Android First</span>
+                </div>
+                <div class="trust-cell">
+                    <strong data-i18n="trust4Title">ملكية 100% للعميل</strong>
+                    <span data-i18n="trust4Sub">تسليم كامل الملفات</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Suite Cards Section on Warm Parchment -->
+        <section id="suite" class="section">
+            <div class="container">
+                <div class="section-head">
+                    <h2 data-i18n="suiteTitle">منظومة حلول Babylon Web</h2>
+                    <p data-i18n="suiteSub">نطور الأنظمة الرقمية والمواقع الاحترافية المصممة خصيصاً لتنمية أعمالك وزيادة ثقة عملائك.</p>
+                </div>
+
+                <div class="suite-tabs" role="tablist">
+                    <button type="button" class="suite-tab active" onclick="filterSuite('all', this)" data-i18n="tabAll">جميع الحلول الهندسية</button>
+                    <button type="button" class="suite-tab" onclick="filterSuite('ai', this)" data-i18n="tabAI">منصات الذكاء الاصطناعي</button>
+                    <button type="button" class="suite-tab" onclick="filterSuite('web', this)" data-i18n="tabWeb">مواقع الشركات والأنظمة</button>
+                </div>
+
+                <div class="cards-grid-3">
+                    <div class="suite-card" data-cat="ai">
+                        <div>
+                            <div class="card-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                            </div>
+                            <h3 data-i18n="s1Title">بناء منصات الذكاء الاصطناعي</h3>
+                            <p data-i18n="s1Desc">تطوير تطبيقات ومنصات ويب مدعومة بنماذج الذكاء الاصطناعي لأتمتة الأعمال وتقديم خدمات رقمية حديثة.</p>
+                        </div>
+                        <button type="button" class="violet-link" onclick="openProject('p1')" data-i18n="learnMore">تفاصيل البنية البرمجية &larr;</button>
                     </div>
-                    <div class="system-card-body">
-                        <div class="sys-row">
-                            <span class="sys-key" data-i18n="cardRow1K">المنصة المنجزة</span>
-                            <span class="sys-val gold en-font">VoltAI Platform</span>
+
+                    <div class="suite-card" data-cat="web">
+                        <div>
+                            <div class="card-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                            </div>
+                            <h3 data-i18n="s2Title">مواقع الشركات والمراكز الطبية</h3>
+                            <p data-i18n="s2Desc">واجهات تعريفية عالية الثقة تعرض خدماتك ومشاريعك مع ربط مباشر بقنوات التواصل ونظام حجز المواعيد.</p>
                         </div>
-                        <div class="sys-row">
-                            <span class="sys-key" data-i18n="cardRow2K">زمن التنفيذ للمواقع</span>
-                            <span class="sys-val" data-i18n="cardRow2V">3 - 7 أيام عمل</span>
+                        <button type="button" class="violet-link" onclick="openProject('p2')" data-i18n="learnMore">تفاصيل البنية البرمجية &larr;</button>
+                    </div>
+
+                    <div class="suite-card" data-cat="ai web">
+                        <div>
+                            <div class="card-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                            </div>
+                            <h3 data-i18n="s3Title">مساعد خدمة العملاء الذكي</h3>
+                            <p data-i18n="s3Desc">ربط موقعك بمساعد ذكي مدرب على بيانات نشاطك التجاري للرد على استفسارات الزبائن على مدار الساعة.</p>
                         </div>
-                        <div class="sys-row">
-                            <span class="sys-key" data-i18n="cardRow3K">التوافق مع الهواتف</span>
-                            <span class="sys-val en-font">iOS / Android Ready</span>
-                        </div>
-                        <div class="sys-row">
-                            <span class="sys-key" data-i18n="cardRow4K">تسليم الملكية</span>
-                            <span class="sys-val" data-i18n="cardRow4V">كود مصدري + استضافة ودومين</span>
-                        </div>
+                        <button type="button" class="violet-link" onclick="openProject('p3')" data-i18n="learnMore">تفاصيل البنية البرمجية &larr;</button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="projects" class="section">
-            <div class="container">
-                <div class="section-head">
-                    <span class="section-tag" data-i18n="projectsTag">معرض الإنجازات</span>
-                    <h2 data-i18n="projectsTitle">مشاريع ومنصات من تطويرنا</h2>
-                    <p data-i18n="projectsSub">اطلع على مشاريعنا الفعلية والحلول البرمجية الجاهزة للتخصيص حسب نشاطك التجاري</p>
+        <!-- Deep Lagoon Dark Feature Band (#0c4243) — VoltAI Flagship Showcase -->
+        <section id="voltai" class="dark-band">
+            <div class="container dark-band-grid">
+                <div class="lagoon-collage">
+                    <div class="collage-layer-1">
+                        <span class="en-font" style="font-size: 0.78rem; color: var(--color-lilac-mist); display: block; margin-bottom: 6px;">ARCHITECTURE OVERVIEW</span>
+                        <strong style="font-size: 1.05rem; display: block;" data-i18n="voltBoxTitle">هندسة متكاملة من الصفر إلى الإطلاق</strong>
+                    </div>
+                    <div class="collage-layer-2">
+                        <div class="collage-row">
+                            <span style="color: var(--color-stone-gray);" data-i18n="voltSpec1Label">الفئة المستهدفة</span>
+                            <strong data-i18n="voltSpec1Short">رواد الأعمال والفرق التقنية</strong>
+                        </div>
+                        <div class="collage-row">
+                            <span style="color: var(--color-stone-gray);" data-i18n="voltSpec2Label">الأداء والتجاوب</span>
+                            <strong class="en-font">Mobile-First UI</strong>
+                        </div>
+                        <div class="collage-row">
+                            <span style="color: var(--color-stone-gray);" data-i18n="voltSpec3Label">دور Babylon Web</span>
+                            <strong data-i18n="voltSpec3Short">الهوية + الواجهة + ربط AI</strong>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="flagship">
-                    <div class="flagship-top">
-                        <div>
-                            <h3 class="en-font">VoltAI Platform</h3>
-                            <span class="flagship-sub" data-i18n="voltSubtitle">منصة ذكاء اصطناعي متكاملة للأتمتة والإنتاجية</span>
-                        </div>
-                        <span class="hero-badge" style="margin-bottom: 0;" data-i18n="voltBadge">مشروع حقيقي مُطلق | Live</span>
-                    </div>
-
-                    <p class="flagship-desc" data-i18n="voltDesc">
+                <div class="dark-band-content">
+                    <span class="tag-pill" data-i18n="voltBadge">مشروع حقيقي مُطلق | Live Platform</span>
+                    <h2 class="en-font">VoltAI Platform</h2>
+                    <p data-i18n="voltDesc">
                         منصة VoltAI هي أحد مشاريعنا الهندسية المتكاملة في مجال الذكاء الاصطناعي؛ تم تطويرها لتوفير أدوات ذكية سريعة الاستجابة تساعد المستخدمين وأصحاب الأعمال على إنجاز المهام المعقدة، توليد المحتوى، وتحليل البيانات عبر واجهة عصرية فائقة السرعة.
                     </p>
-
-                    <div class="specs-grid">
-                        <div class="spec-box">
-                            <span data-i18n="voltSpec1Label">الفئة المستهدفة</span>
-                            <p data-i18n="voltSpec1Val">رواد الأعمال، صناع المحتوى، والفرق التقنية الباحثة عن أدوات ذكاء اصطناعي موحدة وسريعة.</p>
-                        </div>
-                        <div class="spec-box">
-                            <span data-i18n="voltSpec2Label">أبرز ميزات المنصة</span>
-                            <p data-i18n="voltSpec2Val">معالجة فورية للأوامر، واجهة مستخدم متجاوبة بالكامل مع الهواتف، وتجربة استخدام سلسة بدون تعقيد.</p>
-                        </div>
-                        <div class="spec-box">
-                            <span data-i18n="voltSpec3Label">دور Babylon Web في المشروع</span>
-                            <p data-i18n="voltSpec3Val">تصميم الهوية البصرية، هندسة الواجهة الأمامية (UI/UX)، وربط نماذج الذكاء الاصطناعي وتحسين الأداء.</p>
-                        </div>
-                    </div>
-
-                    <div class="flagship-actions">
-                        <a href="https://volt-ai.std24341059.workers.dev/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" data-i18n="voltBtnVisit">زيارة منصة VoltAI مباشرة</a>
-                        <a href="#contact" class="btn btn-secondary" data-i18n="voltBtnOrder">اطلب بناء منصة مماثلة</a>
-                    </div>
-                </div>
-
-                <div class="grid-3">
-                    <div class="card">
-                        <div>
-                            <span class="card-cat" data-i18n="p1Cat">مساعد ذكي للشركات</span>
-                            <h3 data-i18n="p1Title">نظام خدمة العملاء الذكي</h3>
-                            <p data-i18n="p1Desc">ربط موقعك بمساعد ذكاء اصطناعي مدرب على بيانات شركتك للرد على استفسارات الزبائن وحجز المواعيد تلقائياً.</p>
-                        </div>
-                        <button type="button" class="btn btn-secondary" onclick="openProject('p1')" data-i18n="btnDetails">تفاصيل البنية البرمجية</button>
-                    </div>
-
-                    <div class="card">
-                        <div>
-                            <span class="card-cat" data-i18n="p2Cat">منصات تجارية وعقارية</span>
-                            <h3 data-i18n="p2Title">مواقع الشركات والمراكز الطبية</h3>
-                            <p data-i18n="p2Desc">واجهات تعريفية رسمية عالية الثقة تعرض الخدمات والمشاريع مع ربط مباشر بقنوات التواصل والحجز.</p>
-                        </div>
-                        <button type="button" class="btn btn-secondary" onclick="openProject('p2')" data-i18n="btnDetails">تفاصيل البنية البرمجية</button>
-                    </div>
-
-                    <div class="card">
-                        <div>
-                            <span class="card-cat" data-i18n="p3Cat">أنظمة إدارة سحابية</span>
-                            <h3 data-i18n="p3Title">لوحات التحكم وإدارة المشاريع</h3>
-                            <p data-i18n="p3Desc">تطبيقات ويب مخصصة لمتابعة المبيعات، المهام، وتقارير الأداء من الهاتف أو الحاسوب بواجهة سهلة.</p>
-                        </div>
-                        <button type="button" class="btn btn-secondary" onclick="openProject('p3')" data-i18n="btnDetails">تفاصيل البنية البرمجية</button>
+                    <div class="dark-band-actions">
+                        <a href="https://volt-ai.std24341059.workers.dev/" target="_blank" rel="noopener noreferrer" class="btn-ghost-white" data-i18n="voltBtnVisit">زيارة منصة VoltAI مباشرة</a>
+                        <a href="#contact" class="btn-lilac" style="border-color: transparent;" data-i18n="voltBtnOrder">اطلب بناء منصة مماثلة</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="services" class="section">
-            <div class="container">
-                <div class="section-head">
-                    <span class="section-tag" data-i18n="servicesTag">مجالات التخصص</span>
-                    <h2 data-i18n="servicesTitle">ماذا نقدم لمشروعك؟</h2>
-                    <p data-i18n="servicesSub">حلول هندسية تجمع بين قوة الذكاء الاصطناعي وتصميم الويب الاحترافي</p>
-                </div>
-
-                <div class="grid-3">
-                    <div class="card">
-                        <div>
-                            <h3 data-i18n="s1Title">بناء منصات الذكاء الاصطناعي</h3>
-                            <p style="margin-bottom: 0;" data-i18n="s1Desc">تطوير تطبيقات ومنصات ويب مدعومة بالذكاء الاصطناعي (مثل منصة VoltAI) لأتمتة الأعمال وتقديم خدمات رقمية مبتكرة.</p>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div>
-                            <h3 data-i18n="s2Title">تطوير المواقع وصفحات الهبوط</h3>
-                            <p style="margin-bottom: 0;" data-i18n="s2Desc">تصميم وبرمجة مواقع سريعة ومتجاوبة بالكامل مع الهواتف تعكس قوة علامتك التجارية وتزيد من ثقة عملائك.</p>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div>
-                            <h3 data-i18n="s3Title">تحويل الأفكار إلى مشاريع رقمية</h3>
-                            <p style="margin-bottom: 0;" data-i18n="s3Desc">نرافقك من التخطيط الأولي إلى إطلاق النسخة الكاملة على الإنترنت مع تسليم كافة الأكواد والملفات البرمجية.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+        <!-- FAQ Section -->
         <section id="faq" class="section">
             <div class="container">
                 <div class="section-head">
-                    <span class="section-tag" data-i18n="faqTag">إجابات واضحة</span>
-                    <h2 data-i18n="faqTitle">الأسئلة الشائعة</h2>
+                    <h2 data-i18n="faqTitle">إجابات واضحة قبل بدء العمل</h2>
+                    <p data-i18n="faqSub">كل ما تحتاج معرفته حول مدة التنفيذ، التوافق مع الهواتف، وملكية الكود.</p>
                 </div>
 
                 <div class="faq-grid">
-                    <div class="faq-item">
-                        <h4 data-i18n="q1Title">كم يستغرق تصميم وبناء الموقع أو المنصة؟</h4>
-                        <p data-i18n="q1Desc">تتراوح مدة التنفيذ بين 3 إلى 7 أيام للمواقع التعريفية وصفحات الهبوط، ومن أسبوع إلى أسبوعين لمنصات الذكاء الاصطناعي والأنظمة المخصصة حسب حجم الميزات المطلوبة.</p>
+                    <div class="faq-card">
+                        <h4 data-i18n="q1Title">كم يستغرق بناء الموقع أو المنصة؟</h4>
+                        <p data-i18n="q1Desc">من 3 إلى 7 أيام للمواقع التعريفية وصفحات الهبوط، ومن أسبوع إلى أسبوعين لمنصات الذكاء الاصطناعي والأنظمة المخصصة.</p>
                     </div>
-                    <div class="faq-item">
-                        <h4 data-i18n="q2Title">هل يعمل الموقع بسلاسة على هواتف الآيفون والأندرويد؟</h4>
+                    <div class="faq-card">
+                        <h4 data-i18n="q2Title">هل يعمل بسلاسة على هواتف الآيفون والأندرويد؟</h4>
                         <p data-i18n="q2Desc">نعم، جميع مشاريعنا تُبنى بمنهجية التوافق الكامل مع شاشات الهواتف الذكية أولاً، مع سرعة تحميل عالية وتجربة تصفح مريحة.</p>
                     </div>
-                    <div class="faq-item">
+                    <div class="faq-card">
                         <h4 data-i18n="q3Title">هل أستلم ملكية الكود والمشروع بالكامل؟</h4>
-                        <p data-i18n="q3Desc">بالتأكيد، عند الانتهاء من المشروع يتم تسليمك كافة الأكواد المصدرية وربط الموقع بالاستضافة والدومين الخاص بك بملكية كاملة 100%.</p>
+                        <p data-i18n="q3Desc">بالتأكيد، عند الانتهاء يتم تسليمك كافة الأكواد المصدرية وربط الموقع بالاستضافة والدومين الخاص بك بملكية كاملة 100%.</p>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Atmospheric Gradient Banner -->
+        <div class="gradient-banner-wrap">
+            <div class="gradient-banner">
+                <h2 data-i18n="bannerCtaTitle">حوّل فكرتك الرقمية إلى منصة حقيقية جاهزة للعمل</h2>
+                <a href="#contact" class="btn-wine" data-i18n="navCta">ابدأ مشروعك</a>
+            </div>
+        </div>
+
+        <!-- Contact & WhatsApp Brief Builder -->
         <section id="contact" class="section">
             <div class="container">
                 <div class="section-head">
-                    <span class="section-tag" data-i18n="contactTag">ابدأ التنفيذ</span>
                     <h2 data-i18n="contactTitle">تواصل معنا مباشرة لبدء مشروعك</h2>
                     <p data-i18n="contactDesc">حدد نوع مشروعك لإرسال طلب سريع عبر واتساب، أو تواصل معنا مباشرة عبر حساباتنا الرسمية.</p>
                 </div>
 
                 <div class="contact-grid">
-                    <div class="brief-box">
+                    <div class="brief-card">
                         <span class="brief-label" data-i18n="briefSelectLabel">1. اختر نوع المشروع المطلوب:</span>
                         <div class="type-pills">
                             <button type="button" class="type-pill selected" onclick="selectType(this, 'ai')" data-i18n="typeAI">منصة ذكاء اصطناعي</button>
@@ -899,11 +1169,11 @@
                         <label for="projectIdeaInput" class="brief-label" data-i18n="briefInputLabel">2. نبذة قصيرة عن فكرتك (اختياري):</label>
                         <input type="text" id="projectIdeaInput" class="brief-input" placeholder="مثال: أرغب ببناء موقع تعريفي لعيادتي مع نظام حجز..." data-i18n-placeholder="briefPlaceholder">
 
-                        <button type="button" onclick="sendWhatsAppBrief()" class="btn btn-primary" style="width: 100%;" data-i18n="briefSendBtn">إرسال تفاصيل المشروع عبر واتساب</button>
+                        <button type="button" onclick="sendWhatsAppBrief()" class="btn-wine" style="width: 100%;" data-i18n="briefSendBtn">إرسال تفاصيل المشروع عبر واتساب</button>
                     </div>
 
-                    <div class="channels-stack">
-                        <a href="https://wa.me/9647850772200" target="_blank" rel="noopener noreferrer" class="channel-card">
+                    <div class="channels-list">
+                        <a href="https://wa.me/9647850772200" target="_blank" rel="noopener noreferrer" class="channel-item">
                             <div>
                                 <strong data-i18n="chWhatsapp">واتساب مباشر</strong>
                                 <span>+964 785 077 2200</span>
@@ -911,7 +1181,7 @@
                             <span aria-hidden="true">&nearr;</span>
                         </a>
 
-                        <a href="https://t.me/mzr_eng" target="_blank" rel="noopener noreferrer" class="channel-card">
+                        <a href="https://t.me/mzr_eng" target="_blank" rel="noopener noreferrer" class="channel-item">
                             <div>
                                 <strong data-i18n="chTelegram">تليجرام</strong>
                                 <span>@mzr_eng</span>
@@ -919,7 +1189,7 @@
                             <span aria-hidden="true">&nearr;</span>
                         </a>
 
-                        <a href="https://instagram.com/0dst" target="_blank" rel="noopener noreferrer" class="channel-card">
+                        <a href="https://instagram.com/0dst" target="_blank" rel="noopener noreferrer" class="channel-item">
                             <div>
                                 <strong data-i18n="chInstagram">إنستغرام</strong>
                                 <span>@0dst</span>
@@ -932,19 +1202,42 @@
         </section>
     </main>
 
+    <!-- Midnight Wine Multi-Column Footer -->
     <footer>
         <div class="container">
-            <p data-i18n="footerText">جميع الحقوق محفوظة &copy; 2026 <strong>BABYLON WEB</strong> - تطوير منصات الذكاء الاصطناعي والحلول الرقمية | العراق</p>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4 class="en-font">Babylon Web</h4>
+                    <p data-i18n="footerAbout">هندسة منصات الذكاء الاصطناعي وتطوير المواقع الرقمية عالية الأداء للشركات ورواد الأعمال في العراق والمنطقة.</p>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footerColLinks">الأقسام</h4>
+                    <a href="#suite" data-i18n="navServices">الحلول والخدمات</a>
+                    <a href="#voltai" data-i18n="navVolt">منصة VoltAI</a>
+                    <a href="#faq" data-i18n="navFaq">الأسئلة الشائعة</a>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footerColDirect">تواصل مباشر</h4>
+                    <a href="https://wa.me/9647850772200" target="_blank" rel="noopener noreferrer">WhatsApp: +964 785 077 2200</a>
+                    <a href="https://t.me/mzr_eng" target="_blank" rel="noopener noreferrer">Telegram: @mzr_eng</a>
+                    <a href="https://instagram.com/0dst" target="_blank" rel="noopener noreferrer">Instagram: @0dst</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span data-i18n="footerRights">جميع الحقوق محفوظة &copy; 2026 BABYLON WEB - العراق</span>
+                <span class="en-font">AI Platforms & Web Engineering</span>
+            </div>
         </div>
     </footer>
 
+    <!-- Details Modal -->
     <div id="projectModal" class="modal" onclick="closeProject()">
         <div class="modal-card" onclick="event.stopPropagation()">
             <h3 id="mTitle"></h3>
             <p id="mDesc"></p>
             <div class="modal-actions">
-                <button type="button" class="btn btn-secondary" onclick="closeProject()" data-i18n="modalClose">إغلاق</button>
-                <a href="#contact" class="btn btn-primary" onclick="closeProject()" data-i18n="modalOrder">اطلب نموذجاً مشابهاً</a>
+                <button type="button" class="btn-lilac" onclick="closeProject()" data-i18n="modalClose">إغلاق</button>
+                <a href="#contact" class="btn-wine" onclick="closeProject()" data-i18n="modalOrder">اطلب نموذجاً مشابهاً</a>
             </div>
         </div>
     </div>
@@ -956,67 +1249,60 @@
         const i18n = {
             ar: {
                 dir: 'rtl',
-                brandSub: 'هندسة الذكاء الاصطناعي والويب',
+                bannerText: 'إطلاق منصة VoltAI — أحدث أنظمة الذكاء الاصطناعي من تطوير Babylon Web',
+                bannerLink: 'تجربة المنصة',
+                navServices: 'الحلول والخدمات',
+                navVolt: 'منصة VoltAI',
+                navFaq: 'الأسئلة الشائعة',
                 navCta: 'ابدأ مشروعك',
-                statusPill: 'متاحون لاستقبال مشاريع المواقع ومنصات الذكاء الاصطناعي',
-                heroTitle: 'نحول أفكارك إلى <span>منصات ذكاء اصطناعي</span> ومواقع رقمية متكاملة',
-                heroDesc: 'في Babylon Web نصمم ونطور مواقع إلكترونية عالية الأداء، منصات مدعومة بالذكاء الاصطناعي، ومشاريع رقمية مخصصة تمنح عملك حضوراً موثوقاً وتجربة استخدام سلسة.',
+                heroEyebrow: 'هندسة الذكاء الاصطناعي وتطوير الويب',
+                heroTitle: 'نصمم منصات الذكاء الاصطناعي والمواقع الرقمية بسرعة ودقة',
+                heroDesc: 'في Babylon Web نحول أفكارك إلى مواقع شركات عالية الأداء ومنصات ذكاء اصطناعي متكاملة تمنح عملك حضوراً موثوقاً وتجربة استخدام استثنائية.',
                 heroBtnPrimary: 'اطلب بناء مشروعك',
-                heroBtnSecondary: 'شاهد أعمالنا الحقيقية',
+                heroBtnSecondary: 'استكشف منصة VoltAI',
+                float1Title: 'منصة ذكاء اصطناعي متكاملة',
+                float1Desc: 'أتمتة المهام وتوليد المحتوى عبر واجهة سريعة الاستجابة ومهيأة للهواتف.',
+                float2Tag: 'تسليم سريع',
+                float2Title: 'ملكية كاملة للكود المصدري',
+                float2Desc: 'تطوير مخصص بدون قوالب مكررة مع ربط الاستضافة والدومين باسمك 100%.',
                 trust1Title: 'برمجة مخصصة',
-                trust1Desc: 'أكواد نظيفة وسريعة بدون قوالب',
+                trust1Sub: 'أكواد نظيفة وسريعة',
                 trust2Title: 'تكامل الذكاء الاصطناعي',
-                trust2Desc: 'ربط الأنظمة الذكية والأتمتة',
-                trust3Title: 'ملكية كاملة للعميل',
-                trust3Desc: 'تسليم الكود المصدري 100%',
-                cardRow1K: 'المنصة المنجزة',
-                cardRow2K: 'زمن التنفيذ للمواقع',
-                cardRow2V: '3 - 7 أيام عمل',
-                cardRow3K: 'التوافق مع الهواتف',
-                cardRow4K: 'تسليم الملكية',
-                cardRow4V: 'كود مصدري + استضافة ودومين',
-                projectsTag: 'معرض الإنجازات',
-                projectsTitle: 'مشاريع ومنصات من تطويرنا',
-                projectsSub: 'اطلع على مشاريعنا الفعلية والحلول البرمجية الجاهزة للتخصيص حسب نشاطك التجاري',
-                voltBadge: 'مشروع حقيقي مُطلق | Live',
-                voltSubtitle: 'منصة ذكاء اصطناعي متكاملة للأتمتة والإنتاجية',
-                voltDesc: 'منصة VoltAI هي أحد مشاريعنا الهندسية المتكاملة في مجال الذكاء الاصطناعي؛ تم تطويرها لتوفير أدوات ذكية سريعة الاستجابة تساعد المستخدمين وأصحاب الأعمال على إنجاز المهام المعقدة، توليد المحتوى، وتحليل البيانات عبر واجهة عصرية فائقة السرعة.',
+                trust2Sub: 'ربط الأنظمة الذكية',
+                trust3Title: 'توافق تام للهواتف',
+                trust4Title: 'ملكية 100% للعميل',
+                trust4Sub: 'تسليم كامل الملفات',
+                suiteTitle: 'منظومة حلول Babylon Web',
+                suiteSub: 'نطور الأنظمة الرقمية والمواقع الاحترافية المصممة خصيصاً لتنمية أعمالك وزيادة ثقة عملائك.',
+                tabAll: 'جميع الحلول الهندسية',
+                tabAI: 'منصات الذكاء الاصطناعي',
+                tabWeb: 'مواقع الشركات والأنظمة',
+                s1Title: 'بناء منصات الذكاء الاصطناعي',
+                s1Desc: 'تطوير تطبيقات ومنصات ويب مدعومة بنماذج الذكاء الاصطناعي لأتمتة الأعمال وتقديم خدمات رقمية حديثة.',
+                s2Title: 'مواقع الشركات والمراكز الطبية',
+                s2Desc: 'واجهات تعريفية عالية الثقة تعرض خدماتك ومشاريعك مع ربط مباشر بقنوات التواصل ونظام حجز المواعيد.',
+                s3Title: 'مساعد خدمة العملاء الذكي',
+                s3Desc: 'ربط موقعك بمساعد ذكي مدرب على بيانات نشاطك التجاري للرد على استفسارات الزبائن على مدار الساعة.',
+                learnMore: 'تفاصيل البنية البرمجية ←',
+                voltBoxTitle: 'هندسة متكاملة من الصفر إلى الإطلاق',
                 voltSpec1Label: 'الفئة المستهدفة',
-                voltSpec1Val: 'رواد الأعمال، صناع المحتوى، والفرق التقنية الباحثة عن أدوات ذكاء اصطناعي موحدة وسريعة.',
-                voltSpec2Label: 'أبرز ميزات المنصة',
-                voltSpec2Val: 'معالجة فورية للأوامر، واجهة مستخدم متجاوبة بالكامل مع الهواتف، وتجربة استخدام سلسة بدون تعقيد.',
-                voltSpec3Label: 'دور Babylon Web في المشروع',
-                voltSpec3Val: 'تصميم الهوية البصرية، هندسة الواجهة الأمامية (UI/UX)، وربط نماذج الذكاء الاصطناعي وتحسين الأداء.',
+                voltSpec1Short: 'رواد الأعمال والفرق التقنية',
+                voltSpec2Label: 'الأداء والتجاوب',
+                voltSpec3Label: 'دور Babylon Web',
+                voltSpec3Short: 'الهوية + الواجهة + ربط AI',
+                voltBadge: 'مشروع حقيقي مُطلق | Live Platform',
+                voltDesc: 'منصة VoltAI هي أحد مشاريعنا الهندسية المتكاملة في مجال الذكاء الاصطناعي؛ تم تطويرها لتوفير أدوات ذكية سريعة الاستجابة تساعد المستخدمين وأصحاب الأعمال على إنجاز المهام المعقدة، توليد المحتوى، وتحليل البيانات عبر واجهة عصرية فائقة السرعة.',
                 voltBtnVisit: 'زيارة منصة VoltAI مباشرة',
                 voltBtnOrder: 'اطلب بناء منصة مماثلة',
-                p1Cat: 'مساعد ذكي للشركات',
-                p1Title: 'نظام خدمة العملاء الذكي',
-                p1Desc: 'ربط موقعك بمساعد ذكاء اصطناعي مدرب على بيانات شركتك للرد على استفسارات الزبائن وحجز المواعيد تلقائياً.',
-                p2Cat: 'منصات تجارية وعقارية',
-                p2Title: 'مواقع الشركات والمراكز الطبية',
-                p2Desc: 'واجهات تعريفية رسمية عالية الثقة تعرض الخدمات والمشاريع مع ربط مباشر بقنوات التواصل والحجز.',
-                p3Cat: 'أنظمة إدارة سحابية',
-                p3Title: 'لوحات التحكم وإدارة المشاريع',
-                p3Desc: 'تطبيقات ويب مخصصة لمتابعة المبيعات، المهام، وتقارير الأداء من الهاتف أو الحاسوب بواجهة سهلة.',
-                btnDetails: 'تفاصيل البنية البرمجية',
-                servicesTag: 'مجالات التخصص',
-                servicesTitle: 'ماذا نقدم لمشروعك؟',
-                servicesSub: 'حلول هندسية تجمع بين قوة الذكاء الاصطناعي وتصميم الويب الاحترافي',
-                s1Title: 'بناء منصات الذكاء الاصطناعي',
-                s1Desc: 'تطوير تطبيقات ومنصات ويب مدعومة بالذكاء الاصطناعي (مثل منصة VoltAI) لأتمتة الأعمال وتقديم خدمات رقمية مبتكرة.',
-                s2Title: 'تطوير المواقع وصفحات الهبوط',
-                s2Desc: 'تصميم وبرمجة مواقع سريعة ومتجاوبة بالكامل مع الهواتف تعكس قوة علامتك التجارية وتزيد من ثقة عملائك.',
-                s3Title: 'تحويل الأفكار إلى مشاريع رقمية',
-                s3Desc: 'نرافقك من التخطيط الأولي إلى إطلاق النسخة الكاملة على الإنترنت مع تسليم كافة الأكواد والملفات البرمجية.',
-                faqTag: 'إجابات واضحة',
-                faqTitle: 'الأسئلة الشائعة',
-                q1Title: 'كم يستغرق تصميم وبناء الموقع أو المنصة؟',
-                q1Desc: 'تتراوح مدة التنفيذ بين 3 إلى 7 أيام للمواقع التعريفية وصفحات الهبوط، ومن أسبوع إلى أسبوعين لمنصات الذكاء الاصطناعي والأنظمة المخصصة حسب حجم الميزات المطلوبة.',
-                q2Title: 'هل يعمل الموقع بسلاسة على هواتف الآيفون والأندرويد؟',
+                faqTitle: 'إجابات واضحة قبل بدء العمل',
+                faqSub: 'كل ما تحتاج معرفته حول مدة التنفيذ، التوافق مع الهواتف، وملكية الكود.',
+                q1Title: 'كم يستغرق بناء الموقع أو المنصة؟',
+                q1Desc: 'من 3 إلى 7 أيام للمواقع التعريفية وصفحات الهبوط، ومن أسبوع إلى أسبوعين لمنصات الذكاء الاصطناعي والأنظمة المخصصة.',
+                q2Title: 'هل يعمل بسلاسة على هواتف الآيفون والأندرويد؟',
                 q2Desc: 'نعم، جميع مشاريعنا تُبنى بمنهجية التوافق الكامل مع شاشات الهواتف الذكية أولاً، مع سرعة تحميل عالية وتجربة تصفح مريحة.',
                 q3Title: 'هل أستلم ملكية الكود والمشروع بالكامل؟',
-                q3Desc: 'بالتأكيد، عند الانتهاء من المشروع يتم تسليمك كافة الأكواد المصدرية وربط الموقع بالاستضافة والدومين الخاص بك بملكية كاملة 100%.',
-                contactTag: 'ابدأ التنفيذ',
+                q3Desc: 'بالتأكيد، عند الانتهاء يتم تسليمك كافة الأكواد المصدرية وربط الموقع بالاستضافة والدومين الخاص بك بملكية كاملة 100%.',
+                bannerCtaTitle: 'حوّل فكرتك الرقمية إلى منصة حقيقية جاهزة للعمل',
                 contactTitle: 'تواصل معنا مباشرة لبدء مشروعك',
                 contactDesc: 'حدد نوع مشروعك لإرسال طلب سريع عبر واتساب، أو تواصل معنا مباشرة عبر حساباتنا الرسمية.',
                 briefSelectLabel: '1. اختر نوع المشروع المطلوب:',
@@ -1029,80 +1315,76 @@
                 chWhatsapp: 'واتساب مباشر',
                 chTelegram: 'تليجرام',
                 chInstagram: 'إنستغرام',
-                footerText: 'جميع الحقوق محفوظة &copy; 2026 <strong>BABYLON WEB</strong> - تطوير منصات الذكاء الاصطناعي والحلول الرقمية | العراق',
+                footerAbout: 'هندسة منصات الذكاء الاصطناعي وتطوير المواقع الرقمية عالية الأداء للشركات ورواد الأعمال في العراق والمنطقة.',
+                footerColLinks: 'الأقسام',
+                footerColDirect: 'تواصل مباشر',
+                footerRights: 'جميع الحقوق محفوظة © 2026 BABYLON WEB - العراق',
                 modalClose: 'إغلاق',
                 modalOrder: 'اطلب نموذجاً مشابهاً',
                 modals: {
-                    p1: { title: 'نظام خدمة العملاء الذكي', desc: 'بنية برمجية متكاملة تتيح تضمين مساعد ذكي داخل موقعك الإلكتروني للإجابة الفورية على أسئلة العملاء وتوجيههم لحجز الخدمات على مدار 24 ساعة.' },
-                    p2: { title: 'مواقع الشركات والمراكز الطبية', desc: 'تصميم هندسي سريع التحميل يركز على إبراز هوية المؤسسة، عرض الخدمات والأطباء أو المشاريع، وتسهيل التواصل الفوري من الهواتف الذكية.' },
-                    p3: { title: 'لوحات التحكم وإدارة المشاريع', desc: 'تطوير واجهات ويب تفاعلية لإدارة البيانات والفرق التجارية بوضوح تام وسرعة استجابة عالية على جميع الأجهزة.' }
+                    p1: { title: 'بناء منصات الذكاء الاصطناعي', desc: 'تطوير واجهات تفاعلية سريعة وربطها بنماذج الذكاء الاصطناعي لمعالجة النصوص والبيانات مع تجربة مستخدم سلسة على جميع الأجهزة.' },
+                    p2: { title: 'مواقع الشركات والمراكز الطبية', desc: 'تصميم هندسي سريع التحميل يركز على إبراز هوية المؤسسة، عرض الخدمات والأطباء أو المشاريع، وتسهيل التواصل الفوري.' },
+                    p3: { title: 'مساعد خدمة العملاء الذكي', desc: 'بنية برمجية تتيح تضمين مساعد ذكي داخل موقعك الإلكتروني للإجابة الفورية على أسئلة العملاء وحجز المواعيد تلقائياً.' }
                 }
             },
             en: {
                 dir: 'ltr',
-                brandSub: 'AI Platforms & Web Engineering',
+                bannerText: 'VoltAI Launch — Next-gen AI productivity platform engineered by Babylon Web',
+                bannerLink: 'Explore Live',
+                navServices: 'Solutions',
+                navVolt: 'VoltAI Platform',
+                navFaq: 'FAQ',
                 navCta: 'Start Project',
-                statusPill: 'Available for Web & AI Platform Development',
-                heroTitle: 'We Transform Ideas into <span>AI Platforms</span> & Digital Experiences',
-                heroDesc: 'At Babylon Web, we architect high-performance websites, AI-powered platforms, and custom digital products engineered to build trust and scale your business.',
+                heroEyebrow: 'AI Platforms & Web Engineering',
+                heroTitle: 'We architect AI platforms and websites built for speed and trust',
+                heroDesc: 'At Babylon Web, we transform ideas into high-performance company websites and integrated AI platforms engineered to scale your business.',
                 heroBtnPrimary: 'Build Your Project',
-                heroBtnSecondary: 'Explore Live Work',
+                heroBtnSecondary: 'Explore VoltAI',
+                float1Title: 'Integrated AI Platform',
+                float1Desc: 'Task automation and content generation through a fast, mobile-ready interface.',
+                float2Tag: 'Fast Delivery',
+                float2Title: '100% Source Code Ownership',
+                float2Desc: 'Custom engineering without templates, delivered with full domain and hosting setup.',
                 trust1Title: 'Custom Engineering',
-                trust1Desc: 'Clean, fast codebases without templates',
+                trust1Sub: 'Clean, fast codebases',
                 trust2Title: 'AI Integration',
-                trust2Desc: 'Smart automation & LLM integration',
-                trust3Title: '100% Ownership',
-                trust3Desc: 'Full source code handover',
-                cardRow1K: 'Live Production',
-                cardRow2K: 'Website Delivery',
-                cardRow2V: '3 - 7 Business Days',
-                cardRow3K: 'Mobile Optimization',
-                cardRow4K: 'Handover',
-                cardRow4V: 'Source Code + Domain Setup',
-                projectsTag: 'Proven Track Record',
-                projectsTitle: 'Platforms & Systems We Built',
-                projectsSub: 'Explore our live flagship platform alongside customizable digital architectures',
-                voltBadge: 'Live Production Project',
-                voltSubtitle: 'All-in-One AI Productivity & Automation Platform',
-                voltDesc: 'VoltAI is one of our flagship AI engineering projects, built to deliver ultra-responsive intelligent tools that help entrepreneurs and teams automate workflows, generate content, and process data seamlessly.',
+                trust2Sub: 'Smart automation workflows',
+                trust3Title: 'Mobile Optimized',
+                trust4Title: '100% Ownership',
+                trust4Sub: 'Full source code handover',
+                suiteTitle: 'The Babylon Web Suite',
+                suiteSub: 'Digital systems and professional websites tailored to grow your business and earn client trust.',
+                tabAll: 'All Engineering Solutions',
+                tabAI: 'AI Platforms',
+                tabWeb: 'Corporate & Web Systems',
+                s1Title: 'AI Platform Development',
+                s1Desc: 'Building AI-powered web applications and SaaS tools to automate workflows and launch modern digital products.',
+                s2Title: 'Corporate & Clinic Websites',
+                s2Desc: 'High-trust websites showcasing your services and portfolio with direct mobile communication and booking.',
+                s3Title: 'Smart Customer Assistant',
+                s3Desc: 'Embedding custom AI assistants trained on your business data to answer client inquiries 24/7.',
+                learnMore: 'Architecture details →',
+                voltBoxTitle: 'End-to-End Engineering from Zero to Launch',
                 voltSpec1Label: 'Target Audience',
-                voltSpec1Val: 'Entrepreneurs, content creators, and tech teams seeking fast, unified AI tools.',
-                voltSpec2Label: 'Core Capabilities',
-                voltSpec2Val: 'Real-time prompt processing, mobile-first responsive UI, and frictionless user workflows.',
+                voltSpec1Short: 'Founders & Tech Teams',
+                voltSpec2Label: 'Performance',
                 voltSpec3Label: 'Babylon Web Scope',
-                voltSpec3Val: 'Brand visual identity, full UI/UX front-end architecture, AI integration, and speed optimization.',
+                voltSpec3Short: 'Identity + UI/UX + AI',
+                voltBadge: 'Live Production Project',
+                voltDesc: 'VoltAI is one of our flagship AI engineering projects, built to deliver ultra-responsive intelligent tools that help entrepreneurs and teams automate workflows, generate content, and analyze data seamlessly.',
                 voltBtnVisit: 'Visit VoltAI Live',
                 voltBtnOrder: 'Request Similar Platform',
-                p1Cat: 'Enterprise AI Assistant',
-                p1Title: 'Smart Customer Support System',
-                p1Desc: 'Custom AI assistants trained on your business data to answer inquiries and book appointments 24/7.',
-                p2Cat: 'Corporate & Medical Web',
-                p2Title: 'Enterprise & Clinic Portals',
-                p2Desc: 'High-trust corporate websites designed to showcase services and convert visitors directly via mobile.',
-                p3Cat: 'Cloud Management',
-                p3Title: 'Project & Operations Dashboards',
-                p3Desc: 'Tailored web applications to track sales, team workflows, and analytics from any device.',
-                btnDetails: 'Architecture Details',
-                servicesTag: 'Core Expertise',
-                servicesTitle: 'What We Build For You',
-                servicesSub: 'Engineering solutions combining modern AI capabilities with precision web design',
-                s1Title: 'AI Platform Development',
-                s1Desc: 'Building AI-powered web applications and SaaS tools (like VoltAI) to automate workflows and launch innovative products.',
-                s2Title: 'Websites & Landing Pages',
-                s2Desc: 'Fast, responsive websites engineered to elevate your brand credibility and maximize client conversions.',
-                s3Title: 'Idea-to-Launch Execution',
-                s3Desc: 'End-to-end development from initial blueprint to live cloud deployment with complete source code handover.',
-                faqTag: 'Clear Answers',
-                faqTitle: 'Frequently Asked Questions',
+                faqTitle: 'Clear answers before we begin',
+                faqSub: 'Everything you need to know about timelines, mobile optimization, and code ownership.',
                 q1Title: 'How long does it take to build a website or platform?',
-                q1Desc: 'Corporate websites and landing pages take 3 to 7 days, while custom AI platforms and dashboards take 1 to 2 weeks depending on required integrations.',
-                q2Title: 'Are all websites fully optimized for mobile devices?',
-                q2Desc: 'Yes, every project is engineered mobile-first for iOS and Android browsers with fast load speeds and clean responsive layouts.',
-                q3Title: 'Do I receive full ownership and source code?',
-                q3Desc: 'Yes, upon completion we hand over 100% of the source code and connect everything to your domain and hosting.',
-                contactTag: 'Get Started',
-                contactTitle: 'Connect Directly to Start Your Project',
-                contactDesc: 'Select your project type to send a structured inquiry via WhatsApp, or reach out through our direct channels.',
+                q1Desc: '3 to 7 days for corporate websites and landing pages, and 1 to 2 weeks for custom AI platforms and web systems.',
+                q2Title: 'Are all sites optimized for iOS and Android?',
+                q2Desc: 'Yes, every project is engineered mobile-first for fast load speeds and clean responsive layouts across all phones.',
+                q3Title: 'Do I receive 100% source code ownership?',
+                q3Desc: 'Yes, upon completion we hand over all source files and connect everything to your own domain and hosting.',
+                bannerCtaTitle: 'Turn your digital idea into a production-ready platform',
+                contactTitle: 'Connect directly to start your project',
+                contactDesc: 'Select your project type to send a quick brief via WhatsApp, or reach out through our official channels.',
                 briefSelectLabel: '1. Select your project type:',
                 typeAI: 'AI Platform',
                 typeWeb: 'Company / Clinic Website / Landing Page',
@@ -1113,78 +1395,74 @@
                 chWhatsapp: 'Direct WhatsApp',
                 chTelegram: 'Telegram',
                 chInstagram: 'Instagram',
-                footerText: 'All Rights Reserved &copy; 2026 <strong>BABYLON WEB</strong> - AI Platforms & Web Engineering | Iraq',
+                footerAbout: 'Engineering AI platforms and high-performance websites for businesses and founders in Iraq and the region.',
+                footerColLinks: 'Navigation',
+                footerColDirect: 'Direct Contact',
+                footerRights: 'All Rights Reserved © 2026 BABYLON WEB - Iraq',
                 modalClose: 'Close',
                 modalOrder: 'Request Similar Build',
                 modals: {
-                    p1: { title: 'Smart Customer Support System', desc: 'A custom web architecture embedding an AI assistant trained on your company knowledge base to handle customer inquiries and bookings 24/7.' },
-                    p2: { title: 'Enterprise & Clinic Portals', desc: 'Fast-loading corporate and medical websites focused on authority, clear service presentation, and instant mobile conversion.' },
-                    p3: { title: 'Project & Operations Dashboards', desc: 'Interactive web dashboards built to manage operations, teams, and performance metrics smoothly across mobile and desktop.' }
+                    p1: { title: 'AI Platform Development', desc: 'Building fast interactive front-ends integrated with AI models for text and data processing across all devices.' },
+                    p2: { title: 'Corporate & Clinic Websites', desc: 'Fast-loading corporate and medical websites focused on authority, clear service presentation, and instant conversion.' },
+                    p3: { title: 'Smart Customer Assistant', desc: 'Custom web architecture embedding an AI assistant trained on your business knowledge base for 24/7 support.' }
                 }
             },
             ku: {
                 dir: 'rtl',
-                brandSub: 'ئەندازیاری ژیری دەستکرد و وێب',
+                bannerText: 'بڵاوکردنەوەی پلاتفۆرمی VoltAI — نوێترین سیستەمی ژیری دەستکرد لەلایەن Babylon Web',
+                bannerLink: 'تاقیکردنەوە',
+                navServices: 'خزمەتگوزارییەکان',
+                navVolt: 'پلاتفۆرمی VoltAI',
+                navFaq: 'پرسیارە باوەکان',
                 navCta: 'پڕۆژەکەت دەستپێبکە',
-                statusPill: 'ئامادەین بۆ دروستکردنی ماڵپەڕ و پلاتفۆرمی ژیری دەستکرد',
-                heroTitle: 'بیرۆکەکانت دەگۆڕین بۆ <span>پلاتفۆرمی ژیری دەستکرد</span> و ماڵپەڕی پێشکەوتوو',
-                heroDesc: 'لە Babylon Web ماڵپەڕی خێرا، پلاتفۆرمی پاڵپشتیکراو بە ژیری دەستکرد، و پڕۆژەی دیجیتاڵی تایبەت دروست دەکەین کە متمانە لای کڕیارەکانت دروست دەکات.',
+                heroEyebrow: 'ئەندازیاری ژیری دەستکرد و وێب',
+                heroTitle: 'پلاتفۆرمی ژیری دەستکرد و ماڵپەڕی پێشکەوتوو بە خێرایی و وردی دروست دەکەین',
+                heroDesc: 'لە Babylon Web بیرۆکەکانت دەگۆڕین بۆ ماڵپەڕی کۆمپانیا و پلاتفۆرمی ژیری دەستکرد کە متمانە لای کڕیارەکانت دروست دەکات.',
                 heroBtnPrimary: 'داواکردنی پڕۆژە',
-                heroBtnSecondary: 'بینینی کارەکانمان',
+                heroBtnSecondary: 'بینینی پلاتفۆرمی VoltAI',
+                float1Title: 'پلاتفۆرمی ژیری دەستکرد',
+                float1Desc: 'ئاسانکردنی کارەکان و دروستکردنی ناوەڕۆک لە ڕێگەی ڕووکارێکی خێرا و گونجاو بۆ مۆبایل.',
+                float2Tag: 'جێبەجێکردنی خێرا',
+                float2Title: 'خاوەندارێتی تەواوی کۆدەکان',
+                float2Desc: 'پڕۆگرامسازی تایبەت بەبێ قاڵبی دووبارە لەگەڵ بەستنەوەی دۆمەین و هۆستینگ بە ناوی خۆت.',
                 trust1Title: 'پڕۆگرامسازی تایبەت',
-                trust1Desc: 'کۆدی خاوێن و خێرا بەبێ قاڵبی دووبارە',
+                trust1Sub: 'کۆدی خاوێن و خێرا',
                 trust2Title: 'ژیری دەستکرد (AI)',
-                trust2Desc: 'بەستنەوەی سیستەمی زیرەک بە پڕۆژەکەتەوە',
-                trust3Title: 'خاوەندارێتی تەواو',
-                trust3Desc: 'ڕادەستکردنی تەواوی کۆد و فایلەکانی پڕۆژە',
-                cardRow1K: 'پلاتفۆرمی چالاک',
-                cardRow2K: 'ماوەی جێبەجێکردن',
-                cardRow2V: '٣ - ٧ ڕۆژی کارکردن',
-                cardRow3K: 'گونجان لەگەڵ مۆبایل',
-                cardRow4K: 'ڕادەستکردنی خاوەندارێتی',
-                cardRow4V: 'کۆدی سەرچاوە + دۆمەین و هۆستینگ',
-                projectsTag: 'پێشانگای کارەکانمان',
-                projectsTitle: 'پڕۆژە و پلاتفۆرمە دروستکراوەکانمان',
-                projectsSub: 'سەیری پڕۆژە ڕاستەقینەکانمان و نموونە ئامادەکانمان بکە کە بەپێی کارەکەت دەگونجێنرێن',
-                voltBadge: 'پڕۆژەی ڕاستەقینە | Live',
-                voltSubtitle: 'پلاتفۆرمی ژیری دەستکرد بۆ خێراکردنی کارەکان',
-                voltDesc: 'پلاتفۆرمی VoltAI یەکێکە لە پڕۆژە ئەندازیارییە تەواوەکانمان لە بواری ژیری دەستکرد؛ دروستکراوە بۆ دابینکردنی ئامرازی زیرەک و خێرا کە یارمەتی خاوەنکاران دەدات بۆ جێبەجێکردنی کارەکان بە شێوەیەکی مۆدێرن.',
+                trust2Sub: 'بەستنەوەی سیستەمی زیرەک',
+                trust3Title: 'گونجان لەگەڵ مۆبایل',
+                trust4Title: 'خاوەندارێتی ١٠٠٪',
+                trust4Sub: 'ڕادەستکردنی تەواوی فایلەکان',
+                suiteTitle: 'چارەسەرەکانی Babylon Web',
+                suiteSub: 'سیستەمی دیجیتاڵی و ماڵپەڕی پڕۆفیشناڵ دروست دەکەین بۆ گەشەپێدانی کارەکانت.',
+                tabAll: 'هەموو چارەسەرەکان',
+                tabAI: 'پلاتفۆرمی ژیری دەستکرد',
+                tabWeb: 'ماڵپەڕی کۆمپانیا و سیستەم',
+                s1Title: 'دروستکردنی پلاتفۆرمی ژیری دەستکرد',
+                s1Desc: 'پەرەپێدانی پلاتفۆرم و ئەپڵیکەیشنی وێب بە پاڵپشتی ژیری دەستکرد بۆ خێراکردنی کارەکان.',
+                s2Title: 'ماڵپەڕی کۆمپانیا و کلینیکەکان',
+                s2Desc: 'ڕووکاری فەرمی و متمانەپێکراو بۆ نمایشکردنی خزمەتگوزارییەکان و پەیوەندیکردنی خێرا.',
+                s3Title: 'یاریدەدەری زیرەکی کڕیاران',
+                s3Desc: 'بەستنەوەی ماڵپەڕەکەت بە یاریدەدەرێکی زیرەک بۆ وەڵامدانەوەی کڕیاران بە درێژایی ٢٤ کاتژمێر.',
+                learnMore: 'وردەکاری تەکنیکی ←',
+                voltBoxTitle: 'ئەندازیاری تەواو لە سەرەتاوە تا بڵاوکردنەوە',
                 voltSpec1Label: 'بۆ کێ گونجاوە',
-                voltSpec1Val: 'خاوەنکاران، دروستکەرانی ناوەڕۆک، و تیمە تەکنیکییەکان کە بەدوای ئامرازی خێرای AI دەگەڕێن.',
-                voltSpec2Label: 'تایبەتمەندییە سەرەکییەکان',
-                voltSpec2Val: 'وەڵامدانەوەی خێرا، ڕووکارێکی گونجاو لەگەڵ هەموو مۆبایلەکان، و بەکارهێنانی ئاسان.',
-                voltSpec3Label: 'ڕۆڵی Babylon Web لە پڕۆژەکەدا',
-                voltSpec3Val: 'دیزاینی ناسنامەی بینراو، ئەندازیاری ڕووکاری پێشەوە (UI/UX)، و بەستنەوەی مۆدێلەکانی ژیری دەستکرد.',
+                voltSpec1Short: 'خاوەنکاران و تیمە تەکنیکییەکان',
+                voltSpec2Label: 'خێرایی و گونجان',
+                voltSpec3Label: 'ڕۆڵی Babylon Web',
+                voltSpec3Short: 'ناسنامە + ڕووکار + AI',
+                voltBadge: 'پڕۆژەی ڕاستەقینە | Live Platform',
+                voltDesc: 'پلاتفۆرمی VoltAI یەکێکە لە پڕۆژە ئەندازیارییە تەواوەکانمان لە بواری ژیری دەستکرد؛ دروستکراوە بۆ دابینکردنی ئامرازی زیرەک و خێرا کە یارمەتی خاوەنکاران دەدات بۆ جێبەجێکردنی کارەکان.',
                 voltBtnVisit: 'سەردانی پلاتفۆرمی VoltAI',
                 voltBtnOrder: 'داواکردنی پلاتفۆرمی هاوشێوە',
-                p1Cat: 'یاریدەدەری زیرەک',
-                p1Title: 'سیستەمی خزمەتگوزاری کڕیاران',
-                p1Desc: 'بەستنەوەی ماڵپەڕەکەت بە یاریدەدەرێکی زیرەک بۆ وەڵامدانەوەی کڕیاران و حجزکردنی کات بە شێوەی ئۆتۆماتیکی.',
-                p2Cat: 'ماڵپەڕی کۆمپانیا و کلینیک',
-                p2Title: 'ماڵپەڕی کۆمپانیا و سەنتەرە پزیشکییەکان',
-                p2Desc: 'ڕووکاری فەرمی و متمانەپێکراو بۆ نمایشکردنی خزمەتگوزارییەکان و پەیوەندیکردنی خێرا لە ڕێگەی مۆبایلەوە.',
-                p3Cat: 'سیستەمی بەڕێوەبردن',
-                p3Title: 'داشبۆرد و بەڕێوەبردنی پڕۆژەکان',
-                p3Desc: 'ئەپڵیکەیشنی وێب بۆ چاودێریکردنی فرۆش و کارەکانی تیمەکەت لە مۆبایل یان کۆمپیوتەرەوە.',
-                btnDetails: 'وردەکاری تەکنیکی',
-                servicesTag: 'بوارەکانی پسپۆڕیمان',
-                servicesTitle: 'چی پێشکەش بە پڕۆژەکەت دەکەین؟',
-                servicesSub: 'چارەسەری ئەندازیاری کە هێزی ژیری دەستکرد و دیزاینی پڕۆفیشناڵی وێب کۆدەکاتەوە',
-                s1Title: 'دروستکردنی پلاتفۆرمی ژیری دەستکرد',
-                s1Desc: 'پەرەپێدانی پلاتفۆرم و ئەپڵیکەیشنی وێب بە پاڵپشتی ژیری دەستکرد (وەک VoltAI) بۆ پێشکەشکردنی خزمەتگوزاری نوێ.',
-                s2Title: 'دروستکردنی ماڵپەڕ و پەڕەی فرۆشتن',
-                s2Desc: 'دیزاین و پڕۆگرامسازی ماڵپەڕی خێرا و گونجاو لەگەڵ مۆبایل کە متمانەی کڕیارەکانت زیاد دەکات.',
-                s3Title: 'گۆڕینی بیرۆکە بۆ پڕۆژەی ڕاستەقینە',
-                s3Desc: 'لە سەرەتای پلانەوە تا بڵاوکردنەوەی تەواو لەسەر ئینتەرنێت لەگەڵت دەبین و تەواوی کۆدەکانت ڕادەست دەکەین.',
-                faqTag: 'وەڵامی ڕوون',
-                faqTitle: 'پرسیارە باوەکان',
+                faqTitle: 'وەڵامی ڕوون پێش دەستپێکردن',
+                faqSub: 'هەموو زانیارییەک دەربارەی کاتی جێبەجێکردن، گونجان لەگەڵ مۆبایل، و خاوەندارێتی کۆد.',
                 q1Title: 'دروستکردنی ماڵپەڕ یان پلاتفۆرم چەند کاتی دەوێت؟',
-                q1Desc: 'ماڵپەڕی کۆمپانیا و پەڕەی فرۆشتن ٣ بۆ ٧ ڕۆژی دەوێت، و پلاتفۆرمەکانی ژیری دەستکرد ١ بۆ ٢ هەفتەیان دەوێت بەپێی تایبەتمەندییەکان.',
-                q2Title: 'ئایا ماڵپەڕەکە بە باشی لەسەر هەموو مۆبایلەکان کار دەکات؟',
-                q2Desc: 'بەڵێ، هەموو پڕۆژەکانمان بە تەواوی لەگەڵ شاشەی مۆبایلەکانی ئایفۆن و ئەندرۆید دەگونجێن بە خێراییەکی بەرز.',
+                q1Desc: '٣ بۆ ٧ ڕۆژ بۆ ماڵپەڕی کۆمپانیا و پەڕەی فرۆشتن، و ١ بۆ ٢ هەفتە بۆ پلاتفۆرمەکانی ژیری دەستکرد.',
+                q2Title: 'ئایا بە باشی لەسەر هەموو مۆبایلەکان کار دەکات؟',
+                q2Desc: 'بەڵێ، هەموو پڕۆژەکانمان بە تەواوی لەگەڵ شاشەی مۆبایلەکانی ئایفۆن و ئەندرۆید دەگونجێن.',
                 q3Title: 'ئایا تەواوی کۆد و خاوەندارێتی پڕۆژەکە وەردەگرم؟',
                 q3Desc: 'بە دڵنیاییەوە، دوای تەواوبوونی پڕۆژەکە تەواوی کۆدەکان و فایلەکانت بە خاوەندارێتی ١٠٠٪ ڕادەست دەکرێت.',
-                contactTag: 'دەستپێبکە',
+                bannerCtaTitle: 'بیرۆکەکەت بگۆڕە بۆ پلاتفۆرمێکی ڕاستەقینە و ئامادە بۆ کار',
                 contactTitle: 'ڕاستەوخۆ پەیوەندیمان پێوە بکە',
                 contactDesc: 'جۆری پڕۆژەکەت دیاری بکە بۆ ناردنی داواکاری خێرا لە واتسئەپ، یان ڕاستەوخۆ نامەمان بۆ بنێرە.',
                 briefSelectLabel: '١. جۆری پڕۆژەکەت هەڵبژێرە:',
@@ -1197,13 +1475,16 @@
                 chWhatsapp: 'واتسئەپ',
                 chTelegram: 'تێلیگرام',
                 chInstagram: 'ئینستاگرام',
-                footerText: 'هەموو مافەکان پارێزراون &copy; 2026 <strong>BABYLON WEB</strong> - پەرەپێدانی پلاتفۆرمی ژیری دەستکرد و وێب | عێراق',
+                footerAbout: 'ئەندازیاری پلاتفۆرمی ژیری دەستکرد و پەرەپێدانی ماڵپەڕی خێرا بۆ کۆمپانیا و خاوەنکاران لە عێراق.',
+                footerColLinks: 'بەشەکان',
+                footerColDirect: 'پەیوەندی ڕاستەوخۆ',
+                footerRights: 'هەموو مافەکان پارێزراون © 2026 BABYLON WEB - عێراق',
                 modalClose: 'داخستن',
                 modalOrder: 'داواکردنی نموونەی هاوشێوە',
                 modals: {
-                    p1: { title: 'سیستەمی خزمەتگوزاری کڕیاران', desc: 'سیستەمێکی تەواو بۆ دانانی یاریدەدەری زیرەک لەناو ماڵپەڕەکەتدا بۆ وەڵامدانەوەی خێرای پرسیاری کڕیاران بە درێژایی ٢٤ کاتژمێر.' },
-                    p2: { title: 'ماڵپەڕی کۆمپانیا و سەنتەرە پزیشکییەکان', desc: 'دیزاینێکی خێرا و فەرمی کە تیشک دەخاتە سەر ناساندنی کۆمپانیا یان کلینیکەکەت و ئاسانکاری بۆ پەیوەندیکردنی کڕیاران.' },
-                    p3: { title: 'داشبۆرد و بەڕێوەبردنی پڕۆژەکان', desc: 'دروستکردنی ڕووکاری وێب بۆ بەڕێوەبردنی داتا و کارەکانی تیمەکەت بە خێراییەکی بەرز لەسەر هەموو ئامێرەکان.' }
+                    p1: { title: 'دروستکردنی پلاتفۆرمی ژیری دەستکرد', desc: 'پەرەپێدانی ڕووکاری خێرا و بەستنەوەی بە مۆدێلەکانی ژیری دەستکرد بۆ چارەسەرکردنی داتا لەسەر هەموو ئامێرەکان.' },
+                    p2: { title: 'ماڵپەڕی کۆمپانیا و کلینیکەکان', desc: 'دیزاینێکی خێرا و فەرمی کە تیشک دەخاتە سەر ناساندنی کۆمپانیا یان کلینیکەکەت و ئاسانکاری بۆ پەیوەندیکردن.' },
+                    p3: { title: 'یاریدەدەری زیرەکی کڕیاران', desc: 'سیستەمێکی تەواو بۆ دانانی یاریدەدەری زیرەک لەناو ماڵپەڕەکەتدا بۆ وەڵامدانەوەی خێرای پرسیاری کڕیاران.' }
                 }
             }
         };
@@ -1228,6 +1509,20 @@
                 const key = el.getAttribute('data-i18n-placeholder');
                 if (data[key]) {
                     el.placeholder = data[key];
+                }
+            });
+        }
+
+        function filterSuite(category, btnEl) {
+            document.querySelectorAll('.suite-tab').forEach(t => t.classList.remove('active'));
+            btnEl.classList.add('active');
+
+            document.querySelectorAll('.suite-card').forEach(card => {
+                const cats = card.getAttribute('data-cat');
+                if (category === 'all' || cats.includes(category)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
                 }
             });
         }
