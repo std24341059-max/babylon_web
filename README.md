@@ -1,8 +1,8 @@
-<DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl" translate="no">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <meta name="google" content="notranslate">
     <title>Babylon Web | هندسة منصات الذكاء الاصطناعي وتطوير المواقع</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='12' fill='%23421d24'/%3E%3Cpath d='M13 33H35M16 26H32M19 19H29' stroke='%23f2f0eb' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
@@ -17,7 +17,6 @@
         }
 
         :root {
-            /* Superhuman Editorial Palette */
             --color-midnight-wine: #421d24;
             --color-royal-violet: #714cb6;
             --color-lilac-mist: #d4c7ff;
@@ -28,30 +27,31 @@
             --color-stone-gray: #666666;
             --color-paper-white: #ffffff;
 
-            /* Radii */
             --radius-sm: 8px;
             --radius-md: 12px;
             --radius-lg: 16px;
             --radius-pill: 999px;
         }
 
-        * {
+        *, *::before, *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
+        html, body {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
             background-color: var(--color-warm-parchment);
             color: var(--color-ink-charcoal);
             font-family: 'IBM Plex Sans Arabic', 'Inter', sans-serif;
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         .en-font {
@@ -60,26 +60,28 @@
         }
 
         .container {
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 20px;
         }
 
-        /* Top Announcement Banner (Midnight Wine) */
+        /* Top Announcement Banner */
         .top-banner {
+            width: 100%;
             background-color: var(--color-midnight-wine);
             color: var(--color-paper-white);
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             padding: 10px 16px;
             text-align: center;
         }
 
         .top-banner-inner {
-            display: inline-flex;
+            display: flex;
             align-items: center;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 8px;
         }
 
         .top-banner a {
@@ -89,23 +91,20 @@
             padding: 3px 12px;
             border-radius: var(--radius-pill);
             font-size: 0.78rem;
-            transition: background 0.2s;
+            white-space: nowrap;
         }
 
-        .top-banner a:hover {
-            background: rgba(255, 255, 255, 0.12);
-        }
-
-        /* Sticky Header with Backdrop Blur */
+        /* Sticky Header */
         header {
+            width: 100%;
             position: sticky;
             top: 0;
             z-index: 100;
-            background: rgba(242, 240, 235, 0.82);
+            background: rgba(242, 240, 235, 0.92);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--color-soft-mist);
-            height: 68px;
+            height: 66px;
             display: flex;
             align-items: center;
         }
@@ -115,58 +114,56 @@
             justify-content: space-between;
             align-items: center;
             width: 100%;
-            gap: 16px;
+            gap: 10px;
         }
 
         .brand {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             text-decoration: none;
             color: var(--color-ink-charcoal);
+            flex-shrink: 0;
         }
 
         .brand-mark {
-            width: 34px;
-            height: 34px;
+            width: 32px;
+            height: 32px;
             background: var(--color-midnight-wine);
-            border-radius: 9px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--color-warm-parchment);
+            flex-shrink: 0;
         }
 
         .brand-name {
             font-family: 'Inter', sans-serif;
-            font-size: 1.15rem;
+            font-size: 1.05rem;
             font-weight: 600;
             letter-spacing: -0.02em;
             color: var(--color-ink-charcoal);
+            white-space: nowrap;
         }
 
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 28px;
+            gap: 24px;
         }
 
         .nav-links a {
             text-decoration: none;
             color: var(--color-ink-charcoal);
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             font-weight: 500;
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover {
-            color: var(--color-royal-violet);
         }
 
         .header-controls {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
 
         .lang-switcher {
@@ -174,7 +171,7 @@
             background: var(--color-paper-white);
             border: 1px solid var(--color-soft-mist);
             border-radius: var(--radius-sm);
-            padding: 3px;
+            padding: 2px;
             gap: 2px;
         }
 
@@ -183,12 +180,11 @@
             border: none;
             color: var(--color-stone-gray);
             font-family: inherit;
-            font-size: 0.78rem;
+            font-size: 0.75rem;
             font-weight: 600;
-            padding: 5px 9px;
+            padding: 5px 8px;
             border-radius: 5px;
             cursor: pointer;
-            transition: background 0.15s, color 0.15s;
         }
 
         .lang-btn.active {
@@ -196,32 +192,23 @@
             color: var(--color-ink-charcoal);
         }
 
-        /* Superhuman Buttons */
+        /* Buttons */
         .btn-wine {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
             min-height: 46px;
-            padding: 0 22px;
+            padding: 0 20px;
             background-color: var(--color-midnight-wine);
             color: var(--color-paper-white);
             border: none;
             border-radius: var(--radius-lg);
             font-family: inherit;
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             font-weight: 500;
             text-decoration: none;
             cursor: pointer;
-            transition: opacity 0.2s, transform 0.1s;
-        }
-
-        .btn-wine:hover {
-            opacity: 0.92;
-        }
-
-        .btn-wine:active {
-            transform: translateY(1px);
         }
 
         .btn-lilac {
@@ -229,7 +216,7 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            min-height: 40px;
+            min-height: 42px;
             padding: 6px 16px;
             background-color: var(--color-lilac-mist);
             color: var(--color-ink-charcoal);
@@ -240,11 +227,6 @@
             font-weight: 500;
             text-decoration: none;
             cursor: pointer;
-            transition: background 0.2s, transform 0.1s;
-        }
-
-        .btn-lilac:hover {
-            background-color: #c5b3ff;
         }
 
         .btn-ghost-white {
@@ -259,22 +241,17 @@
             border: 1px solid var(--color-paper-white);
             border-radius: var(--radius-sm);
             font-family: inherit;
-            font-size: 0.92rem;
+            font-size: 0.9rem;
             font-weight: 500;
             text-decoration: none;
             cursor: pointer;
-            transition: background 0.2s;
-        }
-
-        .btn-ghost-white:hover {
-            background: rgba(255, 255, 255, 0.12);
         }
 
         .violet-link {
             color: var(--color-royal-violet);
             text-decoration: none;
             font-weight: 500;
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             display: inline-flex;
             align-items: center;
             gap: 6px;
@@ -284,22 +261,19 @@
             font-family: inherit;
         }
 
-        .violet-link:hover {
-            text-decoration: underline;
-        }
-
-        /* Editorial Hero with Warm Golden-Hour Atmosphere & Floating Glass UI */
+        /* Hero */
         .hero-wrapper {
-            padding: 20px 24px 0;
-            max-width: 1248px;
-            margin: 0 auto;
+            width: 100%;
+            max-width: 1200px;
+            margin: 16px auto 0;
+            padding: 0 20px;
         }
 
         .hero-canvas {
-            position: relative;
-            border-radius: 24px;
+            width: 100%;
+            border-radius: 20px;
             overflow: hidden;
-            padding: 80px 40px;
+            padding: 64px 36px;
             background: 
                 radial-gradient(circle at 80% 25%, rgba(212, 199, 255, 0.55) 0%, transparent 50%),
                 radial-gradient(circle at 18% 75%, rgba(229, 195, 166, 0.55) 0%, transparent 55%),
@@ -308,73 +282,67 @@
         }
 
         .hero-grid {
-            max-width: 1120px;
-            margin: 0 auto;
             display: grid;
             grid-template-columns: 1.15fr 0.85fr;
-            gap: 48px;
+            gap: 40px;
             align-items: center;
         }
 
         .hero-eyebrow {
             display: inline-block;
-            font-size: 0.82rem;
+            font-size: 0.8rem;
             font-weight: 600;
             color: var(--color-midnight-wine);
-            background: rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.75);
             border: 1px solid rgba(66, 29, 36, 0.15);
             padding: 5px 14px;
             border-radius: var(--radius-pill);
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
         .hero-canvas h1 {
-            font-size: clamp(2.1rem, 4.5vw, 3.6rem);
-            font-weight: 500;
-            line-height: 1.12;
-            letter-spacing: -0.025em;
+            font-size: clamp(1.85rem, 4.2vw, 3.3rem);
+            font-weight: 600;
+            line-height: 1.18;
             color: var(--color-ink-charcoal);
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
 
         .hero-desc {
-            font-size: 1.08rem;
+            font-size: 1.02rem;
             color: var(--color-ink-charcoal);
-            opacity: 0.85;
+            opacity: 0.88;
             max-width: 520px;
-            margin-bottom: 32px;
-            line-height: 1.65;
+            margin-bottom: 28px;
         }
 
         .hero-actions {
             display: flex;
             flex-wrap: wrap;
-            align-items: center;
-            gap: 14px;
+            gap: 12px;
         }
 
-        /* Floating Translucent UI Cards (Signature Superhuman Move) */
         .floating-stack {
             display: flex;
             flex-direction: column;
-            gap: 14px;
+            gap: 12px;
+            width: 100%;
         }
 
         .floating-ui-card {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.6);
+            width: 100%;
+            background: rgba(255, 255, 255, 0.88);
+            border: 1px solid rgba(255, 255, 255, 0.7);
             border-radius: var(--radius-lg);
-            padding: 18px 20px;
+            padding: 16px 18px;
         }
 
         .floating-ui-head {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 8px;
-            font-size: 0.82rem;
+            margin-bottom: 6px;
+            font-size: 0.8rem;
         }
 
         .ui-badge-lilac {
@@ -383,29 +351,31 @@
             padding: 2px 10px;
             border-radius: var(--radius-pill);
             font-weight: 600;
-            font-size: 0.75rem;
+            font-size: 0.74rem;
         }
 
         .floating-ui-card h3 {
-            font-size: 1.02rem;
+            font-size: 1rem;
             font-weight: 600;
             color: var(--color-ink-charcoal);
             margin-bottom: 4px;
         }
 
         .floating-ui-card p {
-            font-size: 0.88rem;
+            font-size: 0.86rem;
             color: var(--color-stone-gray);
         }
 
-        /* Trust Strip Row (Square Monochrome Cells) */
+        /* Trust Strip */
         .trust-band {
+            width: 100%;
             max-width: 1200px;
-            margin: 40px auto 0;
-            padding: 0 24px;
+            margin: 28px auto 0;
+            padding: 0 20px;
         }
 
         .trust-grid {
+            width: 100%;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             background: var(--color-paper-white);
@@ -413,12 +383,9 @@
         }
 
         .trust-cell {
-            padding: 22px 16px;
+            padding: 18px 12px;
             text-align: center;
             border-inline-end: 1px solid var(--color-soft-mist);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
         }
 
         .trust-cell:last-child {
@@ -426,64 +393,64 @@
         }
 
         .trust-cell strong {
-            font-size: 0.95rem;
+            display: block;
+            font-size: 0.9rem;
             font-weight: 600;
             color: var(--color-ink-charcoal);
         }
 
         .trust-cell span {
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             color: var(--color-stone-gray);
-            margin-top: 2px;
         }
 
-        /* Editorial Sections */
+        /* Sections */
         .section {
-            padding: 80px 0;
+            width: 100%;
+            padding: 64px 0;
         }
 
         .section-head {
-            margin-bottom: 40px;
+            margin-bottom: 32px;
             max-width: 640px;
         }
 
         .section-head h2 {
-            font-size: clamp(1.85rem, 3.5vw, 2.8rem);
-            font-weight: 500;
-            line-height: 1.12;
-            letter-spacing: -0.02em;
+            font-size: clamp(1.6rem, 3.2vw, 2.5rem);
+            font-weight: 600;
+            line-height: 1.2;
             color: var(--color-ink-charcoal);
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .section-head p {
             color: var(--color-stone-gray);
-            font-size: 1.02rem;
+            font-size: 0.98rem;
         }
 
-        /* Suite Tab Strip + Product Cards */
+        /* Suite Tabs */
         .suite-tabs {
+            width: 100%;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             background: var(--color-paper-white);
             border: 1px solid var(--color-soft-mist);
             border-radius: var(--radius-sm);
             overflow: hidden;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
 
         .suite-tab {
-            padding: 16px;
+            padding: 14px 8px;
             text-align: center;
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.86rem;
             color: var(--color-ink-charcoal);
             background: var(--color-paper-white);
             border: none;
             border-inline-end: 1px solid var(--color-soft-mist);
             cursor: pointer;
             font-family: inherit;
-            transition: background 0.2s;
         }
 
         .suite-tab:last-child {
@@ -495,24 +462,21 @@
         }
 
         .cards-grid-3 {
+            width: 100%;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            gap: 18px;
         }
 
         .suite-card {
+            width: 100%;
             background: var(--color-paper-white);
             border: 1px solid var(--color-soft-mist);
             border-radius: var(--radius-lg);
-            padding: 24px;
+            padding: 22px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: border-color 0.2s;
-        }
-
-        .suite-card:hover {
-            border-color: var(--color-ink-charcoal);
         }
 
         .card-icon {
@@ -525,69 +489,66 @@
             align-items: center;
             justify-content: center;
             color: var(--color-midnight-wine);
-            margin-bottom: 16px;
+            margin-bottom: 14px;
         }
 
         .suite-card h3 {
-            font-size: 1.18rem;
+            font-size: 1.12rem;
             font-weight: 600;
-            color: var(--color-ink-charcoal);
             margin-bottom: 8px;
         }
 
         .suite-card p {
-            font-size: 0.94rem;
+            font-size: 0.92rem;
             color: var(--color-stone-gray);
-            margin-bottom: 20px;
-            line-height: 1.6;
+            margin-bottom: 18px;
         }
 
-        /* Dark Feature Band (Deep Lagoon #0c4243) — Flagship VoltAI Showcase */
+        /* Dark Feature Band */
         .dark-band {
+            width: 100%;
             background-color: var(--color-deep-lagoon);
             color: var(--color-paper-white);
-            padding: 88px 0;
-            margin: 20px 0;
+            padding: 68px 0;
         }
 
         .dark-band-grid {
             display: grid;
             grid-template-columns: 0.95fr 1.05fr;
-            gap: 56px;
+            gap: 40px;
             align-items: center;
         }
 
-        /* Layered Geometric Collage Art (Left side of Dark Band) */
         .lagoon-collage {
-            position: relative;
+            width: 100%;
             background: rgba(255, 255, 255, 0.06);
             border: 1px solid rgba(255, 255, 255, 0.16);
-            border-radius: 20px;
-            padding: 28px;
-            overflow: hidden;
+            border-radius: 18px;
+            padding: 22px;
         }
 
         .collage-layer-1 {
             background: rgba(212, 199, 255, 0.16);
             border: 1px solid rgba(212, 199, 255, 0.3);
-            border-radius: 14px;
-            padding: 20px;
-            margin-bottom: 16px;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 14px;
         }
 
         .collage-layer-2 {
-            background: rgba(255, 255, 255, 0.92);
+            background: rgba(255, 255, 255, 0.95);
             color: var(--color-ink-charcoal);
-            border-radius: 14px;
-            padding: 20px;
+            border-radius: 12px;
+            padding: 16px;
         }
 
         .collage-row {
             display: flex;
             justify-content: space-between;
+            gap: 8px;
             padding: 8px 0;
             border-bottom: 1px solid var(--color-soft-mist);
-            font-size: 0.86rem;
+            font-size: 0.84rem;
         }
 
         .collage-row:last-child {
@@ -600,25 +561,22 @@
             color: var(--color-lilac-mist);
             padding: 5px 14px;
             border-radius: var(--radius-pill);
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             font-weight: 600;
-            margin-bottom: 18px;
+            margin-bottom: 16px;
         }
 
         .dark-band-content h2 {
-            font-size: clamp(2rem, 4vw, 3.2rem);
-            font-weight: 500;
-            line-height: 1.1;
-            letter-spacing: -0.02em;
-            margin-bottom: 18px;
-            color: var(--color-paper-white);
+            font-size: clamp(1.85rem, 3.8vw, 3rem);
+            font-weight: 600;
+            line-height: 1.15;
+            margin-bottom: 16px;
         }
 
         .dark-band-content p {
-            color: rgba(255, 255, 255, 0.82);
-            font-size: 1.02rem;
-            margin-bottom: 28px;
-            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.98rem;
+            margin-bottom: 24px;
         }
 
         .dark-band-actions {
@@ -627,84 +585,85 @@
             gap: 12px;
         }
 
-        /* Atmospheric Gradient Banner (Superhuman Style) */
+        /* Gradient Banner */
         .gradient-banner-wrap {
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 20px;
         }
 
         .gradient-banner {
-            border-radius: 24px;
-            padding: 56px 44px;
+            width: 100%;
+            border-radius: 20px;
+            padding: 44px 32px;
             border: 1px solid var(--color-soft-mist);
             background:
                 radial-gradient(circle at 68% 50%, rgba(113, 76, 182, 0.18) 0%, transparent 45%),
-                radial-gradient(circle at 93% 50%, rgba(56, 189, 248, 0.16) 0%, transparent 40%),
                 radial-gradient(circle at 30% 80%, rgba(212, 199, 255, 0.45) 0%, transparent 50%),
                 var(--color-paper-white);
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 24px;
-        }
-
-        .gradient-banner h2 {
-            font-size: clamp(1.6rem, 3.2vw, 2.5rem);
-            font-weight: 500;
-            color: var(--color-ink-charcoal);
-            max-width: 620px;
-            line-height: 1.2;
-        }
-
-        /* FAQ Accordion Cards */
-        .faq-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
             gap: 20px;
         }
 
+        .gradient-banner h2 {
+            font-size: clamp(1.4rem, 3vw, 2.2rem);
+            font-weight: 600;
+            color: var(--color-ink-charcoal);
+            max-width: 600px;
+        }
+
+        /* FAQ */
+        .faq-grid {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
         .faq-card {
+            width: 100%;
+            background: var(--color-paper-white);
+            border: 1px solid var(--color-soft-mist);
+            border-radius: var(--radius-lg);
+            padding: 22px;
+        }
+
+        .faq-card h4 {
+            font-size: 1.02rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .faq-card p {
+            font-size: 0.9rem;
+            color: var(--color-stone-gray);
+        }
+
+        /* Contact */
+        .contact-grid {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 24px;
+            align-items: start;
+        }
+
+        .brief-card {
+            width: 100%;
             background: var(--color-paper-white);
             border: 1px solid var(--color-soft-mist);
             border-radius: var(--radius-lg);
             padding: 24px;
         }
 
-        .faq-card h4 {
-            font-size: 1.05rem;
-            font-weight: 600;
-            color: var(--color-ink-charcoal);
-            margin-bottom: 10px;
-        }
-
-        .faq-card p {
-            font-size: 0.92rem;
-            color: var(--color-stone-gray);
-            line-height: 1.65;
-        }
-
-        /* Contact & WhatsApp Brief Section */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 28px;
-            align-items: start;
-        }
-
-        .brief-card {
-            background: var(--color-paper-white);
-            border: 1px solid var(--color-soft-mist);
-            border-radius: var(--radius-lg);
-            padding: 28px;
-        }
-
         .brief-label {
             display: block;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             font-weight: 600;
-            color: var(--color-ink-charcoal);
             margin-bottom: 10px;
         }
 
@@ -712,21 +671,20 @@
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
         .type-pill {
             background: var(--color-warm-parchment);
             border: 1px solid var(--color-soft-mist);
             color: var(--color-ink-charcoal);
-            padding: 8px 14px;
+            padding: 8px 12px;
             border-radius: var(--radius-sm);
             font-family: inherit;
-            font-size: 0.86rem;
+            font-size: 0.84rem;
             font-weight: 500;
             cursor: pointer;
-            min-height: 42px;
-            transition: all 0.15s;
+            min-height: 40px;
         }
 
         .type-pill.selected {
@@ -743,98 +701,83 @@
             padding: 12px 14px;
             color: var(--color-ink-charcoal);
             font-family: inherit;
-            font-size: 0.94rem;
-            margin-bottom: 18px;
-        }
-
-        .brief-input:focus {
-            outline: none;
-            border-color: var(--color-royal-violet);
-            background: var(--color-paper-white);
+            font-size: 0.92rem;
+            margin-bottom: 16px;
         }
 
         .channels-list {
+            width: 100%;
             display: flex;
             flex-direction: column;
             gap: 12px;
         }
 
         .channel-item {
+            width: 100%;
             background: var(--color-paper-white);
             border: 1px solid var(--color-soft-mist);
             border-radius: var(--radius-lg);
-            padding: 18px 20px;
+            padding: 16px 18px;
             text-decoration: none;
             color: var(--color-ink-charcoal);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: border-color 0.2s;
-        }
-
-        .channel-item:hover {
-            border-color: var(--color-ink-charcoal);
         }
 
         .channel-item strong {
             display: block;
-            font-size: 0.96rem;
+            font-size: 0.94rem;
         }
 
         .channel-item span {
-            font-size: 0.86rem;
+            font-size: 0.84rem;
             color: var(--color-royal-violet);
             font-family: 'Inter', sans-serif;
             direction: ltr;
             display: inline-block;
         }
 
-        /* Midnight Wine Multi-Column Footer */
+        /* Footer */
         footer {
+            width: 100%;
             background-color: var(--color-midnight-wine);
             color: var(--color-paper-white);
-            padding: 64px 0 48px;
-            margin-top: 40px;
+            padding: 48px 0 36px;
+            margin-top: 32px;
         }
 
         .footer-grid {
             display: grid;
             grid-template-columns: 1.5fr 1fr 1fr;
-            gap: 40px;
-            padding-bottom: 40px;
+            gap: 32px;
+            padding-bottom: 32px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.14);
         }
 
         .footer-col h4 {
             font-size: 0.9rem;
             font-weight: 700;
-            margin-bottom: 14px;
-            color: var(--color-paper-white);
+            margin-bottom: 12px;
         }
 
         .footer-col p,
         .footer-col a {
             display: block;
-            font-size: 0.88rem;
-            color: rgba(255, 255, 255, 0.72);
+            font-size: 0.86rem;
+            color: rgba(255, 255, 255, 0.75);
             text-decoration: none;
-            margin-bottom: 10px;
-            line-height: 1.6;
-        }
-
-        .footer-col a:hover {
-            color: var(--color-paper-white);
-            text-decoration: underline;
+            margin-bottom: 8px;
         }
 
         .footer-bottom {
-            padding-top: 24px;
-            font-size: 0.84rem;
+            padding-top: 20px;
+            font-size: 0.82rem;
             color: rgba(255, 255, 255, 0.7);
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
-            gap: 12px;
+            gap: 10px;
         }
 
         /* Modal */
@@ -843,7 +786,6 @@
             position: fixed;
             inset: 0;
             background: rgba(41, 40, 39, 0.65);
-            backdrop-filter: blur(4px);
             z-index: 999;
             align-items: center;
             justify-content: center;
@@ -856,21 +798,18 @@
             border-radius: var(--radius-lg);
             max-width: 480px;
             width: 100%;
-            padding: 28px;
+            padding: 24px;
         }
 
         .modal-card h3 {
-            color: var(--color-ink-charcoal);
-            font-size: 1.25rem;
-            font-weight: 600;
+            font-size: 1.2rem;
             margin-bottom: 10px;
         }
 
         .modal-card p {
             color: var(--color-stone-gray);
-            font-size: 0.95rem;
-            margin-bottom: 22px;
-            line-height: 1.65;
+            font-size: 0.92rem;
+            margin-bottom: 20px;
         }
 
         .modal-actions {
@@ -879,7 +818,7 @@
             justify-content: flex-end;
         }
 
-        /* Responsive */
+        /* Mobile Adjustments */
         @media (max-width: 920px) {
             .nav-links {
                 display: none;
@@ -905,28 +844,33 @@
         }
 
         @media (max-width: 600px) {
-            .hero-wrapper {
-                padding: 12px 16px 0;
-            }
-            .hero-canvas {
-                padding: 44px 22px;
-            }
             .header-cta {
                 display: none;
             }
+            .hero-wrapper {
+                padding: 0 14px;
+            }
+            .hero-canvas {
+                padding: 36px 20px;
+            }
             .hero-actions .btn-wine,
-            .hero-actions .btn-lilac {
+            .hero-actions .btn-lilac,
+            .dark-band-actions .btn-ghost-white,
+            .dark-band-actions .btn-lilac {
                 width: 100%;
             }
+            .suite-tab {
+                font-size: 0.78rem;
+                padding: 12px 4px;
+            }
             .gradient-banner {
-                padding: 36px 24px;
+                padding: 32px 20px;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Top Wine Announcement Strip -->
     <div class="top-banner">
         <div class="top-banner-inner">
             <span data-i18n="bannerText">إطلاق منصة VoltAI — أحدث أنظمة الذكاء الاصطناعي من تطوير Babylon Web</span>
@@ -934,24 +878,23 @@
         </div>
     </div>
 
-    <!-- Sticky Frosted Parchment Header -->
     <header>
         <div class="container nav-inner">
             <a href="#" class="brand">
                 <div class="brand-mark">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 18h16M6 13h12M8 8h8"/></svg>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 18h16M6 13h12M8 8h8"/></svg>
                 </div>
                 <span class="brand-name">Babylon Web</span>
             </a>
 
-            <nav class="nav-links" aria-label="Main Navigation">
+            <nav class="nav-links">
                 <a href="#suite" data-i18n="navServices">الحلول والخدمات</a>
                 <a href="#voltai" data-i18n="navVolt">منصة VoltAI</a>
                 <a href="#faq" data-i18n="navFaq">الأسئلة الشائعة</a>
             </nav>
 
             <div class="header-controls">
-                <div class="lang-switcher" role="group" aria-label="Language Switcher">
+                <div class="lang-switcher">
                     <button type="button" class="lang-btn active" onclick="setLanguage('ar')" id="btn-ar">العربية</button>
                     <button type="button" class="lang-btn" onclick="setLanguage('en')" id="btn-en">EN</button>
                     <button type="button" class="lang-btn" onclick="setLanguage('ku')" id="btn-ku">کوردی</button>
@@ -962,7 +905,6 @@
     </header>
 
     <main>
-        <!-- Editorial Golden-Hour Hero with Floating Glass Product Cards -->
         <div class="hero-wrapper">
             <section class="hero-canvas">
                 <div class="hero-grid">
@@ -975,13 +917,11 @@
                         <div class="hero-actions">
                             <a href="#contact" class="btn-wine">
                                 <span data-i18n="heroBtnPrimary">اطلب بناء مشروعك</span>
-                                <span aria-hidden="true">&larr;</span>
                             </a>
                             <a href="#voltai" class="btn-lilac" data-i18n="heroBtnSecondary">استكشف منصة VoltAI</a>
                         </div>
                     </div>
 
-                    <!-- Floating Translucent Product UI Stack -->
                     <div class="floating-stack">
                         <div class="floating-ui-card">
                             <div class="floating-ui-head">
@@ -1005,7 +945,6 @@
             </section>
         </div>
 
-        <!-- Monochrome Square Trust Strip -->
         <div class="trust-band">
             <div class="trust-grid">
                 <div class="trust-cell">
@@ -1027,7 +966,6 @@
             </div>
         </div>
 
-        <!-- Suite Cards Section on Warm Parchment -->
         <section id="suite" class="section">
             <div class="container">
                 <div class="section-head">
@@ -1035,10 +973,10 @@
                     <p data-i18n="suiteSub">نطور الأنظمة الرقمية والمواقع الاحترافية المصممة خصيصاً لتنمية أعمالك وزيادة ثقة عملائك.</p>
                 </div>
 
-                <div class="suite-tabs" role="tablist">
-                    <button type="button" class="suite-tab active" onclick="filterSuite('all', this)" data-i18n="tabAll">جميع الحلول الهندسية</button>
+                <div class="suite-tabs">
+                    <button type="button" class="suite-tab active" onclick="filterSuite('all', this)" data-i18n="tabAll">جميع الحلول</button>
                     <button type="button" class="suite-tab" onclick="filterSuite('ai', this)" data-i18n="tabAI">منصات الذكاء الاصطناعي</button>
-                    <button type="button" class="suite-tab" onclick="filterSuite('web', this)" data-i18n="tabWeb">مواقع الشركات والأنظمة</button>
+                    <button type="button" class="suite-tab" onclick="filterSuite('web', this)" data-i18n="tabWeb">مواقع الشركات</button>
                 </div>
 
                 <div class="cards-grid-3">
@@ -1078,13 +1016,12 @@
             </div>
         </section>
 
-        <!-- Deep Lagoon Dark Feature Band (#0c4243) — VoltAI Flagship Showcase -->
         <section id="voltai" class="dark-band">
             <div class="container dark-band-grid">
                 <div class="lagoon-collage">
                     <div class="collage-layer-1">
-                        <span class="en-font" style="font-size: 0.78rem; color: var(--color-lilac-mist); display: block; margin-bottom: 6px;">ARCHITECTURE OVERVIEW</span>
-                        <strong style="font-size: 1.05rem; display: block;" data-i18n="voltBoxTitle">هندسة متكاملة من الصفر إلى الإطلاق</strong>
+                        <span class="en-font" style="font-size: 0.76rem; color: var(--color-lilac-mist); display: block; margin-bottom: 4px;">ARCHITECTURE OVERVIEW</span>
+                        <strong style="font-size: 1.02rem; display: block;" data-i18n="voltBoxTitle">هندسة متكاملة من الصفر إلى الإطلاق</strong>
                     </div>
                     <div class="collage-layer-2">
                         <div class="collage-row">
@@ -1116,7 +1053,6 @@
             </div>
         </section>
 
-        <!-- FAQ Section -->
         <section id="faq" class="section">
             <div class="container">
                 <div class="section-head">
@@ -1141,7 +1077,6 @@
             </div>
         </section>
 
-        <!-- Atmospheric Gradient Banner -->
         <div class="gradient-banner-wrap">
             <div class="gradient-banner">
                 <h2 data-i18n="bannerCtaTitle">حوّل فكرتك الرقمية إلى منصة حقيقية جاهزة للعمل</h2>
@@ -1149,7 +1084,6 @@
             </div>
         </div>
 
-        <!-- Contact & WhatsApp Brief Builder -->
         <section id="contact" class="section">
             <div class="container">
                 <div class="section-head">
@@ -1162,8 +1096,8 @@
                         <span class="brief-label" data-i18n="briefSelectLabel">1. اختر نوع المشروع المطلوب:</span>
                         <div class="type-pills">
                             <button type="button" class="type-pill selected" onclick="selectType(this, 'ai')" data-i18n="typeAI">منصة ذكاء اصطناعي</button>
-                            <button type="button" class="type-pill" onclick="selectType(this, 'web')" data-i18n="typeWeb">موقع شركة / عيادة / صفحة هبوط</button>
-                            <button type="button" class="type-pill" onclick="selectType(this, 'custom')" data-i18n="typeCustom">نظام خاص / مشروع متكامل</button>
+                            <button type="button" class="type-pill" onclick="selectType(this, 'web')" data-i18n="typeWeb">موقع شركة / عيادة</button>
+                            <button type="button" class="type-pill" onclick="selectType(this, 'custom')" data-i18n="typeCustom">نظام خاص متكامل</button>
                         </div>
 
                         <label for="projectIdeaInput" class="brief-label" data-i18n="briefInputLabel">2. نبذة قصيرة عن فكرتك (اختياري):</label>
@@ -1178,7 +1112,7 @@
                                 <strong data-i18n="chWhatsapp">واتساب مباشر</strong>
                                 <span>+964 785 077 2200</span>
                             </div>
-                            <span aria-hidden="true">&nearr;</span>
+                            <span>&nearr;</span>
                         </a>
 
                         <a href="https://t.me/mzr_eng" target="_blank" rel="noopener noreferrer" class="channel-item">
@@ -1186,7 +1120,7 @@
                                 <strong data-i18n="chTelegram">تليجرام</strong>
                                 <span>@mzr_eng</span>
                             </div>
-                            <span aria-hidden="true">&nearr;</span>
+                            <span>&nearr;</span>
                         </a>
 
                         <a href="https://instagram.com/0dst" target="_blank" rel="noopener noreferrer" class="channel-item">
@@ -1194,7 +1128,7 @@
                                 <strong data-i18n="chInstagram">إنستغرام</strong>
                                 <span>@0dst</span>
                             </div>
-                            <span aria-hidden="true">&nearr;</span>
+                            <span>&nearr;</span>
                         </a>
                     </div>
                 </div>
@@ -1202,7 +1136,6 @@
         </section>
     </main>
 
-    <!-- Midnight Wine Multi-Column Footer -->
     <footer>
         <div class="container">
             <div class="footer-grid">
@@ -1230,7 +1163,6 @@
         </div>
     </footer>
 
-    <!-- Details Modal -->
     <div id="projectModal" class="modal" onclick="closeProject()">
         <div class="modal-card" onclick="event.stopPropagation()">
             <h3 id="mTitle"></h3>
@@ -1274,9 +1206,9 @@
                 trust4Sub: 'تسليم كامل الملفات',
                 suiteTitle: 'منظومة حلول Babylon Web',
                 suiteSub: 'نطور الأنظمة الرقمية والمواقع الاحترافية المصممة خصيصاً لتنمية أعمالك وزيادة ثقة عملائك.',
-                tabAll: 'جميع الحلول الهندسية',
+                tabAll: 'جميع الحلول',
                 tabAI: 'منصات الذكاء الاصطناعي',
-                tabWeb: 'مواقع الشركات والأنظمة',
+                tabWeb: 'مواقع الشركات',
                 s1Title: 'بناء منصات الذكاء الاصطناعي',
                 s1Desc: 'تطوير تطبيقات ومنصات ويب مدعومة بنماذج الذكاء الاصطناعي لأتمتة الأعمال وتقديم خدمات رقمية حديثة.',
                 s2Title: 'مواقع الشركات والمراكز الطبية',
@@ -1307,8 +1239,8 @@
                 contactDesc: 'حدد نوع مشروعك لإرسال طلب سريع عبر واتساب، أو تواصل معنا مباشرة عبر حساباتنا الرسمية.',
                 briefSelectLabel: '1. اختر نوع المشروع المطلوب:',
                 typeAI: 'منصة ذكاء اصطناعي',
-                typeWeb: 'موقع شركة / عيادة / صفحة هبوط',
-                typeCustom: 'نظام خاص / مشروع متكامل',
+                typeWeb: 'موقع شركة / عيادة',
+                typeCustom: 'نظام خاص متكامل',
                 briefInputLabel: '2. نبذة قصيرة عن فكرتك (اختياري):',
                 briefPlaceholder: 'مثال: أرغب ببناء موقع تعريفي لعيادتي مع نظام حجز...',
                 briefSendBtn: 'إرسال تفاصيل المشروع عبر واتساب',
@@ -1354,9 +1286,9 @@
                 trust4Sub: 'Full source code handover',
                 suiteTitle: 'The Babylon Web Suite',
                 suiteSub: 'Digital systems and professional websites tailored to grow your business and earn client trust.',
-                tabAll: 'All Engineering Solutions',
+                tabAll: 'All Solutions',
                 tabAI: 'AI Platforms',
-                tabWeb: 'Corporate & Web Systems',
+                tabWeb: 'Company Sites',
                 s1Title: 'AI Platform Development',
                 s1Desc: 'Building AI-powered web applications and SaaS tools to automate workflows and launch modern digital products.',
                 s2Title: 'Corporate & Clinic Websites',
@@ -1387,8 +1319,8 @@
                 contactDesc: 'Select your project type to send a quick brief via WhatsApp, or reach out through our official channels.',
                 briefSelectLabel: '1. Select your project type:',
                 typeAI: 'AI Platform',
-                typeWeb: 'Company / Clinic Website / Landing Page',
-                typeCustom: 'Custom System / Full MVP',
+                typeWeb: 'Company / Clinic Site',
+                typeCustom: 'Custom Full System',
                 briefInputLabel: '2. Brief note about your idea (optional):',
                 briefPlaceholder: 'Example: I need a clinic website with online appointment booking...',
                 briefSendBtn: 'Send Project Brief via WhatsApp',
@@ -1435,8 +1367,8 @@
                 suiteTitle: 'چارەسەرەکانی Babylon Web',
                 suiteSub: 'سیستەمی دیجیتاڵی و ماڵپەڕی پڕۆفیشناڵ دروست دەکەین بۆ گەشەپێدانی کارەکانت.',
                 tabAll: 'هەموو چارەسەرەکان',
-                tabAI: 'پلاتفۆرمی ژیری دەستکرد',
-                tabWeb: 'ماڵپەڕی کۆمپانیا و سیستەم',
+                tabAI: 'ژیری دەستکرد',
+                tabWeb: 'ماڵپەڕی کۆمپانیا',
                 s1Title: 'دروستکردنی پلاتفۆرمی ژیری دەستکرد',
                 s1Desc: 'پەرەپێدانی پلاتفۆرم و ئەپڵیکەیشنی وێب بە پاڵپشتی ژیری دەستکرد بۆ خێراکردنی کارەکان.',
                 s2Title: 'ماڵپەڕی کۆمپانیا و کلینیکەکان',
@@ -1468,7 +1400,7 @@
                 briefSelectLabel: '١. جۆری پڕۆژەکەت هەڵبژێرە:',
                 typeAI: 'پلاتفۆرمی ژیری دەستکرد',
                 typeWeb: 'ماڵپەڕی کۆمپانیا / کلینیک',
-                typeCustom: 'سیستەمی تایبەت / پڕۆژەی تەواو',
+                typeCustom: 'سیستەمی تایبەت تەواو',
                 briefInputLabel: '٢. کورتەیەک دەربارەی بیرۆکەکەت (ئارەزوومەندانە):',
                 briefPlaceholder: 'نموونە: دەمەوێت ماڵپەڕێک بۆ کلینیکەکەم دروست بکەم...',
                 briefSendBtn: 'ناردنی زانیاری پڕۆژە لە واتسئەپ',
